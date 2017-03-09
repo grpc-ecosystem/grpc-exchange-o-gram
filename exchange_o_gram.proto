@@ -1,0 +1,71 @@
+// Protobuf definition for Exchange-O-Gram
+syntax = "proto3";
+
+package exchange_o_gram;
+
+enum Status {
+    SUCCESS = 0;
+    FAILURE = 1;
+}
+
+message Image {
+    string filename = 1;
+    bytes data = 2;
+}
+
+message MediaId {
+    int64 id = 1;
+}
+
+message WallPost {
+    string username = 1;
+    string caption = 2;
+    repeated MediaId ids = 3;
+}
+
+message UploadImageResponse {
+    Status status = 1;
+    MediaId id = 2;
+}
+
+message UploadImageRequest {
+    Image image = 1;
+}
+
+message DownloadImageRequest {
+    MediaId id = 1;
+}
+
+message DownloadImageResponse {
+    Status status = 1;
+    Image image = 2;
+}
+
+message PostToWallRequest {
+    WallPost post = 1;
+}
+
+message PostToWallResponse {
+    Status status = 1;
+}
+
+message GetWallPostsRequest {
+    string username = 1;
+    // Remove before demo, so we can show extensibility
+    int32 limit = 2;
+}
+
+message GetWallPostsResponse {
+    WallPost post = 1;
+}
+
+service MediaService {
+    rpc UploadImage (UploadImageRequest) returns (UploadImageResponse) {}
+    rpc DownloadImage(DownloadImageRequest) returns (DownloadImageResponse) {}
+}
+
+service WallService {
+    rpc PostToWall (PostToWallRequest) returns (PostToWallResponse) {}
+    rpc GetWallPosts(GetWallPostsRequest) returns (stream GetWallPostsResponse) {}
+}
+
