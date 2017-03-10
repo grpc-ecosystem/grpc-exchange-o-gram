@@ -3,11 +3,6 @@ syntax = "proto3";
 
 package exchange_o_gram;
 
-enum Status {
-    SUCCESS = 0;
-    FAILURE = 1;
-}
-
 message Image {
     string filename = 1;
     bytes data = 2;
@@ -24,7 +19,6 @@ message WallPost {
 }
 
 message UploadImageResponse {
-    Status status = 1;
     MediaId id = 2;
 }
 
@@ -37,7 +31,6 @@ message DownloadImageRequest {
 }
 
 message DownloadImageResponse {
-    Status status = 1;
     Image image = 2;
 }
 
@@ -46,7 +39,6 @@ message PostToWallRequest {
 }
 
 message PostToWallResponse {
-    Status status = 1;
 }
 
 message GetWallPostsRequest {
