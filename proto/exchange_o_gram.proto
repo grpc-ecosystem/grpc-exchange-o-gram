@@ -3,6 +3,9 @@ syntax = "proto3";
 
 package exchange_o_gram;
 
+option java_package = "io.grpc.demo.exchange_o_gram";
+option java_outer_classname = "ExchangeOGramProto";
+
 message Image {
     string filename = 1;
     bytes data = 2;

@@ -1,1 +1,6 @@
 .project
+bazel-bin
+bazel-genfiles
+bazel-grpc-service-demo
+bazel-out
+bazel-testlogs
