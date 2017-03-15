@@ -23,41 +23,46 @@ namespace ExchangeOGram {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChVleGNoYW5nZV9vX2dyYW0ucHJvdG8SD2V4Y2hhbmdlX29fZ3JhbSInCgVJ",
-            "bWFnZRIQCghmaWxlbmFtZRgBIAEoCRIMCgRkYXRhGAIgASgMIhUKB01lZGlh",
-            "SWQSCgoCaWQYASABKAMiVAoIV2FsbFBvc3QSEAoIdXNlcm5hbWUYASABKAkS",
-            "DwoHY2FwdGlvbhgCIAEoCRIlCgNpZHMYAyADKAsyGC5leGNoYW5nZV9vX2dy",
-            "YW0uTWVkaWFJZCI7ChNVcGxvYWRJbWFnZVJlc3BvbnNlEiQKAmlkGAIgASgL",
-            "MhguZXhjaGFuZ2Vfb19ncmFtLk1lZGlhSWQiOwoSVXBsb2FkSW1hZ2VSZXF1",
-            "ZXN0EiUKBWltYWdlGAEgASgLMhYuZXhjaGFuZ2Vfb19ncmFtLkltYWdlIjwK",
-            "FERvd25sb2FkSW1hZ2VSZXF1ZXN0EiQKAmlkGAEgASgLMhguZXhjaGFuZ2Vf",
-            "b19ncmFtLk1lZGlhSWQiPgoVRG93bmxvYWRJbWFnZVJlc3BvbnNlEiUKBWlt",
-            "YWdlGAIgASgLMhYuZXhjaGFuZ2Vfb19ncmFtLkltYWdlIjwKEVBvc3RUb1dh",
-            "bGxSZXF1ZXN0EicKBHBvc3QYASABKAsyGS5leGNoYW5nZV9vX2dyYW0uV2Fs",
-            "bFBvc3QiFAoSUG9zdFRvV2FsbFJlc3BvbnNlIjYKE0dldFdhbGxQb3N0c1Jl",
-            "cXVlc3QSEAoIdXNlcm5hbWUYASABKAkSDQoFbGltaXQYAiABKAUiPwoUR2V0",
-            "V2FsbFBvc3RzUmVzcG9uc2USJwoEcG9zdBgBIAEoCzIZLmV4Y2hhbmdlX29f",
-            "Z3JhbS5XYWxsUG9zdDLMAQoMTWVkaWFTZXJ2aWNlEloKC1VwbG9hZEltYWdl",
-            "EiMuZXhjaGFuZ2Vfb19ncmFtLlVwbG9hZEltYWdlUmVxdWVzdBokLmV4Y2hh",
-            "bmdlX29fZ3JhbS5VcGxvYWRJbWFnZVJlc3BvbnNlIgASYAoNRG93bmxvYWRJ",
-            "bWFnZRIlLmV4Y2hhbmdlX29fZ3JhbS5Eb3dubG9hZEltYWdlUmVxdWVzdBom",
-            "LmV4Y2hhbmdlX29fZ3JhbS5Eb3dubG9hZEltYWdlUmVzcG9uc2UiADLHAQoL",
-            "V2FsbFNlcnZpY2USVwoKUG9zdFRvV2FsbBIiLmV4Y2hhbmdlX29fZ3JhbS5Q",
-            "b3N0VG9XYWxsUmVxdWVzdBojLmV4Y2hhbmdlX29fZ3JhbS5Qb3N0VG9XYWxs",
-            "UmVzcG9uc2UiABJfCgxHZXRXYWxsUG9zdHMSJC5leGNoYW5nZV9vX2dyYW0u",
-            "R2V0V2FsbFBvc3RzUmVxdWVzdBolLmV4Y2hhbmdlX29fZ3JhbS5HZXRXYWxs",
-            "UG9zdHNSZXNwb25zZSIAMAFiBnByb3RvMw=="));
+            "bWFnZRIQCghmaWxlbmFtZRgBIAEoCRIMCgRkYXRhGAIgASgMIhgKCldhbGxQ",
+            "b3N0SWQSCgoCaWQYASABKAMiFQoHTWVkaWFJZBIKCgJpZBgBIAEoAyKCAQoI",
+            "V2FsbFBvc3QSJwoCaWQYASABKAsyGy5leGNoYW5nZV9vX2dyYW0uV2FsbFBv",
+            "c3RJZBIQCgh1c2VybmFtZRgCIAEoCRIPCgdjYXB0aW9uGAMgASgJEioKCG1l",
+            "ZGlhX2lkGAQgASgLMhguZXhjaGFuZ2Vfb19ncmFtLk1lZGlhSWQiOwoTVXBs",
+            "b2FkSW1hZ2VSZXNwb25zZRIkCgJpZBgBIAEoCzIYLmV4Y2hhbmdlX29fZ3Jh",
+            "bS5NZWRpYUlkIjsKElVwbG9hZEltYWdlUmVxdWVzdBIlCgVpbWFnZRgBIAEo",
+            "CzIWLmV4Y2hhbmdlX29fZ3JhbS5JbWFnZSI8ChREb3dubG9hZEltYWdlUmVx",
+            "dWVzdBIkCgJpZBgBIAEoCzIYLmV4Y2hhbmdlX29fZ3JhbS5NZWRpYUlkIj4K",
+            "FURvd25sb2FkSW1hZ2VSZXNwb25zZRIlCgVpbWFnZRgBIAEoCzIWLmV4Y2hh",
+            "bmdlX29fZ3JhbS5JbWFnZSI8ChFQb3N0VG9XYWxsUmVxdWVzdBInCgRwb3N0",
+            "GAEgASgLMhkuZXhjaGFuZ2Vfb19ncmFtLldhbGxQb3N0Ij0KElBvc3RUb1dh",
+            "bGxSZXNwb25zZRInCgJpZBgBIAEoCzIbLmV4Y2hhbmdlX29fZ3JhbS5XYWxs",
+            "UG9zdElkIjYKE0dldFdhbGxQb3N0c1JlcXVlc3QSEAoIdXNlcm5hbWUYASAB",
+            "KAkSDQoFbGltaXQYAiABKAUiPwoUR2V0V2FsbFBvc3RzUmVzcG9uc2USJwoE",
+            "cG9zdBgBIAEoCzIZLmV4Y2hhbmdlX29fZ3JhbS5XYWxsUG9zdDLMAQoMTWVk",
+            "aWFTZXJ2aWNlEloKC1VwbG9hZEltYWdlEiMuZXhjaGFuZ2Vfb19ncmFtLlVw",
+            "bG9hZEltYWdlUmVxdWVzdBokLmV4Y2hhbmdlX29fZ3JhbS5VcGxvYWRJbWFn",
+            "ZVJlc3BvbnNlIgASYAoNRG93bmxvYWRJbWFnZRIlLmV4Y2hhbmdlX29fZ3Jh",
+            "bS5Eb3dubG9hZEltYWdlUmVxdWVzdBomLmV4Y2hhbmdlX29fZ3JhbS5Eb3du",
+            "bG9hZEltYWdlUmVzcG9uc2UiADLHAQoLV2FsbFNlcnZpY2USVwoKUG9zdFRv",
+            "V2FsbBIiLmV4Y2hhbmdlX29fZ3JhbS5Qb3N0VG9XYWxsUmVxdWVzdBojLmV4",
+            "Y2hhbmdlX29fZ3JhbS5Qb3N0VG9XYWxsUmVzcG9uc2UiABJfCgxHZXRXYWxs",
+            "UG9zdHMSJC5leGNoYW5nZV9vX2dyYW0uR2V0V2FsbFBvc3RzUmVxdWVzdBol",
+            "LmV4Y2hhbmdlX29fZ3JhbS5HZXRXYWxsUG9zdHNSZXNwb25zZSIAMAFCMgoc",
+            "aW8uZ3JwYy5kZW1vLmV4Y2hhbmdlX29fZ3JhbUISRXhjaGFuZ2VPR3JhbVBy",
+            "b3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.Image), global::ExchangeOGram.Image.Parser, new[]{ "Filename", "Data" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.WallPostId), global::ExchangeOGram.WallPostId.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.MediaId), global::ExchangeOGram.MediaId.Parser, new[]{ "Id" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.WallPost), global::ExchangeOGram.WallPost.Parser, new[]{ "Username", "Caption", "Ids" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.WallPost), global::ExchangeOGram.WallPost.Parser, new[]{ "Id", "Username", "Caption", "MediaId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.UploadImageResponse), global::ExchangeOGram.UploadImageResponse.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.UploadImageRequest), global::ExchangeOGram.UploadImageRequest.Parser, new[]{ "Image" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.DownloadImageRequest), global::ExchangeOGram.DownloadImageRequest.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.DownloadImageResponse), global::ExchangeOGram.DownloadImageResponse.Parser, new[]{ "Image" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.PostToWallRequest), global::ExchangeOGram.PostToWallRequest.Parser, new[]{ "Post" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.PostToWallResponse), global::ExchangeOGram.PostToWallResponse.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.PostToWallResponse), global::ExchangeOGram.PostToWallResponse.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.GetWallPostsRequest), global::ExchangeOGram.GetWallPostsRequest.Parser, new[]{ "Username", "Limit" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.GetWallPostsResponse), global::ExchangeOGram.GetWallPostsResponse.Parser, new[]{ "Post" }, null, null, null)
           }));
@@ -211,6 +216,129 @@ namespace ExchangeOGram {
 
   }
 
+  /// <summary>
+  /// TODO: maybe use Int64Value wrapper type for this
+  /// </summary>
+  public sealed partial class WallPostId : pb::IMessage<WallPostId> {
+    private static readonly pb::MessageParser<WallPostId> _parser = new pb::MessageParser<WallPostId>(() => new WallPostId());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<WallPostId> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public WallPostId() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public WallPostId(WallPostId other) : this() {
+      id_ = other.id_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public WallPostId Clone() {
+      return new WallPostId(this);
+    }
+
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private long id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as WallPostId);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(WallPostId other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Id != other.Id) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Id != 0L) hash ^= Id.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Id != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Id);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Id != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(WallPostId other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Id != 0L) {
+        Id = other.Id;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Id = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  /// TODO: maybe use Int64Value wrapper type for this
+  /// </summary>
   public sealed partial class MediaId : pb::IMessage<MediaId> {
     private static readonly pb::MessageParser<MediaId> _parser = new pb::MessageParser<MediaId>(() => new MediaId());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -218,7 +346,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[1]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -335,7 +463,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[2]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -352,9 +480,10 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public WallPost(WallPost other) : this() {
+      Id = other.id_ != null ? other.Id.Clone() : null;
       username_ = other.username_;
       caption_ = other.caption_;
-      ids_ = other.ids_.Clone();
+      MediaId = other.mediaId_ != null ? other.MediaId.Clone() : null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -362,9 +491,23 @@ namespace ExchangeOGram {
       return new WallPost(this);
     }
 
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private global::ExchangeOGram.WallPostId id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::ExchangeOGram.WallPostId Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
     /// <summary>Field number for the "username" field.</summary>
-    public const int UsernameFieldNumber = 1;
+    public const int UsernameFieldNumber = 2;
     private string username_ = "";
+    /// <summary>
+    /// username of the author
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Username {
       get { return username_; }
@@ -374,7 +517,7 @@ namespace ExchangeOGram {
     }
 
     /// <summary>Field number for the "caption" field.</summary>
-    public const int CaptionFieldNumber = 2;
+    public const int CaptionFieldNumber = 3;
     private string caption_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Caption {
@@ -384,14 +527,15 @@ namespace ExchangeOGram {
       }
     }
 
-    /// <summary>Field number for the "ids" field.</summary>
-    public const int IdsFieldNumber = 3;
-    private static readonly pb::FieldCodec<global::ExchangeOGram.MediaId> _repeated_ids_codec
-        = pb::FieldCodec.ForMessage(26, global::ExchangeOGram.MediaId.Parser);
-    private readonly pbc::RepeatedField<global::ExchangeOGram.MediaId> ids_ = new pbc::RepeatedField<global::ExchangeOGram.MediaId>();
+    /// <summary>Field number for the "media_id" field.</summary>
+    public const int MediaIdFieldNumber = 4;
+    private global::ExchangeOGram.MediaId mediaId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::ExchangeOGram.MediaId> Ids {
-      get { return ids_; }
+    public global::ExchangeOGram.MediaId MediaId {
+      get { return mediaId_; }
+      set {
+        mediaId_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -407,18 +551,20 @@ namespace ExchangeOGram {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(Id, other.Id)) return false;
       if (Username != other.Username) return false;
       if (Caption != other.Caption) return false;
-      if(!ids_.Equals(other.ids_)) return false;
+      if (!object.Equals(MediaId, other.MediaId)) return false;
       return true;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (id_ != null) hash ^= Id.GetHashCode();
       if (Username.Length != 0) hash ^= Username.GetHashCode();
       if (Caption.Length != 0) hash ^= Caption.GetHashCode();
-      hash ^= ids_.GetHashCode();
+      if (mediaId_ != null) hash ^= MediaId.GetHashCode();
       return hash;
     }
 
@@ -429,27 +575,39 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Username.Length != 0) {
+      if (id_ != null) {
         output.WriteRawTag(10);
+        output.WriteMessage(Id);
+      }
+      if (Username.Length != 0) {
+        output.WriteRawTag(18);
         output.WriteString(Username);
       }
       if (Caption.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteString(Caption);
       }
-      ids_.WriteTo(output, _repeated_ids_codec);
+      if (mediaId_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(MediaId);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (id_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Id);
+      }
       if (Username.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Username);
       }
       if (Caption.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Caption);
       }
-      size += ids_.CalculateSize(_repeated_ids_codec);
+      if (mediaId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MediaId);
+      }
       return size;
     }
 
@@ -458,13 +616,24 @@ namespace ExchangeOGram {
       if (other == null) {
         return;
       }
+      if (other.id_ != null) {
+        if (id_ == null) {
+          id_ = new global::ExchangeOGram.WallPostId();
+        }
+        Id.MergeFrom(other.Id);
+      }
       if (other.Username.Length != 0) {
         Username = other.Username;
       }
       if (other.Caption.Length != 0) {
         Caption = other.Caption;
       }
-      ids_.Add(other.ids_);
+      if (other.mediaId_ != null) {
+        if (mediaId_ == null) {
+          mediaId_ = new global::ExchangeOGram.MediaId();
+        }
+        MediaId.MergeFrom(other.MediaId);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -476,15 +645,25 @@ namespace ExchangeOGram {
             input.SkipLastField();
             break;
           case 10: {
-            Username = input.ReadString();
+            if (id_ == null) {
+              id_ = new global::ExchangeOGram.WallPostId();
+            }
+            input.ReadMessage(id_);
             break;
           }
           case 18: {
-            Caption = input.ReadString();
+            Username = input.ReadString();
             break;
           }
           case 26: {
-            ids_.AddEntriesFrom(input, _repeated_ids_codec);
+            Caption = input.ReadString();
+            break;
+          }
+          case 34: {
+            if (mediaId_ == null) {
+              mediaId_ = new global::ExchangeOGram.MediaId();
+            }
+            input.ReadMessage(mediaId_);
             break;
           }
         }
@@ -500,7 +679,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[3]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -526,7 +705,7 @@ namespace ExchangeOGram {
     }
 
     /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 2;
+    public const int IdFieldNumber = 1;
     private global::ExchangeOGram.MediaId id_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::ExchangeOGram.MediaId Id {
@@ -568,7 +747,7 @@ namespace ExchangeOGram {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (id_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(10);
         output.WriteMessage(Id);
       }
     }
@@ -603,7 +782,7 @@ namespace ExchangeOGram {
           default:
             input.SkipLastField();
             break;
-          case 18: {
+          case 10: {
             if (id_ == null) {
               id_ = new global::ExchangeOGram.MediaId();
             }
@@ -623,7 +802,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[4]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -746,7 +925,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[5]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -869,7 +1048,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[6]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -895,7 +1074,7 @@ namespace ExchangeOGram {
     }
 
     /// <summary>Field number for the "image" field.</summary>
-    public const int ImageFieldNumber = 2;
+    public const int ImageFieldNumber = 1;
     private global::ExchangeOGram.Image image_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::ExchangeOGram.Image Image {
@@ -937,7 +1116,7 @@ namespace ExchangeOGram {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (image_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(10);
         output.WriteMessage(Image);
       }
     }
@@ -972,7 +1151,7 @@ namespace ExchangeOGram {
           default:
             input.SkipLastField();
             break;
-          case 18: {
+          case 10: {
             if (image_ == null) {
               image_ = new global::ExchangeOGram.Image();
             }
@@ -992,7 +1171,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[7]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1115,7 +1294,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[8]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1132,11 +1311,23 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PostToWallResponse(PostToWallResponse other) : this() {
+      Id = other.id_ != null ? other.Id.Clone() : null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PostToWallResponse Clone() {
       return new PostToWallResponse(this);
+    }
+
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private global::ExchangeOGram.WallPostId id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::ExchangeOGram.WallPostId Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1152,12 +1343,14 @@ namespace ExchangeOGram {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(Id, other.Id)) return false;
       return true;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (id_ != null) hash ^= Id.GetHashCode();
       return hash;
     }
 
@@ -1168,11 +1361,18 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+      if (id_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Id);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (id_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Id);
+      }
       return size;
     }
 
@@ -1180,6 +1380,12 @@ namespace ExchangeOGram {
     public void MergeFrom(PostToWallResponse other) {
       if (other == null) {
         return;
+      }
+      if (other.id_ != null) {
+        if (id_ == null) {
+          id_ = new global::ExchangeOGram.WallPostId();
+        }
+        Id.MergeFrom(other.Id);
       }
     }
 
@@ -1191,6 +1397,13 @@ namespace ExchangeOGram {
           default:
             input.SkipLastField();
             break;
+          case 10: {
+            if (id_ == null) {
+              id_ = new global::ExchangeOGram.WallPostId();
+            }
+            input.ReadMessage(id_);
+            break;
+          }
         }
       }
     }
@@ -1204,7 +1417,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[9]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1233,6 +1446,9 @@ namespace ExchangeOGram {
     /// <summary>Field number for the "username" field.</summary>
     public const int UsernameFieldNumber = 1;
     private string username_ = "";
+    /// <summary>
+    /// requests post authored by this user.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Username {
       get { return username_; }
@@ -1352,7 +1568,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[10]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
