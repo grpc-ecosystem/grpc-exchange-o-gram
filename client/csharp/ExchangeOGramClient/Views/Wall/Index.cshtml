@@ -1,0 +1,23 @@
+﻿@model ExchangeOGram.ViewModels.Wall.Index
+
+<h3>Exchange-O-Gram</h3>
+<a href="/Wall/AddPost" class="btn btn-success btn-sm" id="add-post">
+    <i class="glyphicon glyphicon-plus"></i>
+    New post
+</a>
+
+@foreach (var post in Model.Posts)
+{
+    <div class="media">
+            <div class="media-body">
+                <h4>@post.Caption</h4>
+                <p>by @("@")@post.Username</p>
+            </div>
+    </div>
+}
+
+@if (Model.Posts.Count == 0)
+{
+    <p>No posts found</p>
+}
+
