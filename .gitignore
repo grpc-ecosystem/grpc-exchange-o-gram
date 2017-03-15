@@ -4,3 +4,10 @@ bazel-genfiles
 bazel-grpc-service-demo
 bazel-out
 bazel-testlogs
+server/java/build
+server/java/.gradle
+*.iml
+*.ipr
+*.iws
+.idea
+out
