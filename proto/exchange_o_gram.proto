@@ -11,18 +11,25 @@ message Image {
     bytes data = 2;
 }
 
+// TODO: maybe use Int64Value wrapper type for this
+message WallPostId {
+    int64 id = 1;
+}
+
+// TODO: maybe use Int64Value wrapper type for this
 message MediaId {
     int64 id = 1;
 }
 
 message WallPost {
-    string username = 1;
-    string caption = 2;
-    repeated MediaId ids = 3;
+    WallPostId id = 1;
+    string username = 2;  // username of the author
+    string caption = 3;
+    MediaId media_id = 4;
 }
 
 message UploadImageResponse {
-    MediaId id = 2;
+    MediaId id = 1;
 }
 
 message UploadImageRequest {
@@ -34,7 +41,7 @@ message DownloadImageRequest {
 }
 
 message DownloadImageResponse {
-    Image image = 2;
+    Image image = 1;
 }
 
 message PostToWallRequest {
@@ -42,10 +49,11 @@ message PostToWallRequest {
 }
 
 message PostToWallResponse {
+    WallPostId id = 1;
 }
 
 message GetWallPostsRequest {
-    string username = 1;
+    string username = 1;  // requests post authored by this user.
     // Remove before demo, so we can show extensibility
     int32 limit = 2;
 }
