@@ -9,10 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="wwwroot\css\site.css" />
-    <Content Include="wwwroot\js\site.js" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.2.0" />
     <PackageReference Include="Google.Protobuf.Tools" Version="3.2.0" />
     <PackageReference Include="Grpc" Version="1.1.0" />
