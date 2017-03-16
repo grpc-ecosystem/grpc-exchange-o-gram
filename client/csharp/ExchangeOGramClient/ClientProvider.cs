@@ -10,17 +10,23 @@ namespace ExchangeOGram
     public class ClientProvider
     {
         Channel channel;
-        WallService.WallServiceClient client;
+        WallService.WallServiceClient wallClient;
+        MediaService.MediaServiceClient mediaClient;
 
         public ClientProvider()
         {
             this.channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
-            this.client = new WallService.WallServiceClient(channel);
+            this.wallClient = new WallService.WallServiceClient(channel);
+            this.mediaClient = new MediaService.MediaServiceClient(channel);
         }
 
-        public WallService.WallServiceClient Client
+        public WallService.WallServiceClient WallClient
         {
-            get { return client; }
+            get => wallClient;
+        }
+
+        public MediaService.MediaServiceClient MediaClient {
+            get => mediaClient;
         }
     }
 }

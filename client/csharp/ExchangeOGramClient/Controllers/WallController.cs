@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
 using Grpc.Core.Utils;
 using ExchangeOGram;
 
@@ -11,14 +13,17 @@ namespace ExchangeOGram.Controllers
     public class WallController : Controller
     {
         private readonly ClientProvider clientProvider;
-        public WallController(ClientProvider clientProvider)
+        private readonly IHostingEnvironment environment;
+        
+        public WallController(ClientProvider clientProvider, IHostingEnvironment environment)
         {
             this.clientProvider = clientProvider;
+            this.environment = environment;
         }
 
         public async Task<IActionResult> Index()
         {
-            var client = clientProvider.Client;
+            var client = clientProvider.WallClient;
 
             //var call = client.GetWallPosts(new ExchangeOGram.GetWallPostsRequest
             //{
@@ -38,7 +43,8 @@ namespace ExchangeOGram.Controllers
                 new WallPost
                 {
                     Caption = "This post is now on-the-line.",
-                    Username = "exchangeogram_fan"
+                    Username = "exchangeogram_fan",
+                    MediaId = new MediaId { Id = 10 }
                 }
             };
 
@@ -55,11 +61,17 @@ namespace ExchangeOGram.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> AddPost([Bind("Caption")] WallPost wallPost)
+        public async Task<ActionResult> AddPost([Bind("Caption")] WallPost wallPost, IFormFile mediaFile)
         {
+        
             if (ModelState.IsValid)
             {
-                //_store.Create(book);
+                
+                using (var mediaStream = mediaFile.OpenReadStream())
+                {
+                
+                }
+                
 
                 //wallPost.Username = "someuser";
                 //await clientProvider.Client.PostToWallAsync(new PostToWallRequest
