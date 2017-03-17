@@ -22,6 +22,7 @@ import io.grpc.demo.exchange_o_gram.ExchangeOGramProto.WallPost;
 import io.grpc.demo.exchange_o_gram.ExchangeOGramProto.WallPostId;
 import io.grpc.demo.exchange_o_gram.WallServiceGrpc.WallServiceImplBase;
 import io.grpc.stub.StreamObserver;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.UUID;
 
@@ -51,7 +52,9 @@ public class WallService extends WallServiceImplBase {
         .set("username")
         .to(post.getUsername())
         .set("caption")
-        .to(post.getCaption());
+        .to(post.getCaption())
+        .set("timestamp_created")
+        .to(Instant.now().getEpochSecond());
         
     if (post.hasMediaId())
     {
@@ -72,8 +75,9 @@ public class WallService extends WallServiceImplBase {
     DatabaseClient dbClient = spanner.getDatabaseClient(databaseId);
 
     KeySet usernameKey = KeySet.singleKey(Key.of(request.getUsername()));
-    Iterable<String> columns = Arrays.asList("id", "username", "caption", "media_id");
+    Iterable<String> columns = Arrays.asList("id", "username", "caption", "media_id", "timestamp_created");
 
+    // TODO: return wall posts ORDER BY timestamp_created DESC
     try(ResultSet resultSet = dbClient.singleUse()
         .readUsingIndex("wall_post", "PostsByUsername", usernameKey, columns)) {
 
@@ -91,6 +95,7 @@ public class WallService extends WallServiceImplBase {
         {
           postBuilder.setMediaId(MediaId.newBuilder().setId(resultSet.getLong("media_id")).build());
         }
+        postBuilder.setTimestampCreated(resultSet.getLong("timestamp_created"));
         responseObserver.onNext(GetWallPostsResponse.newBuilder().setPost(postBuilder.build()).build());
       }
       responseObserver.onCompleted();

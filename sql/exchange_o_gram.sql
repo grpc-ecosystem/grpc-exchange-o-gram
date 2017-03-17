@@ -14,5 +14,5 @@ CREATE TABLE wall_post (
   timestamp_created INT64 NOT NULL,
 ) PRIMARY KEY(id);
 
-CREATE INDEX PostsByUsername ON wall_post(username) STORING (caption, media_id)
+CREATE INDEX PostsByUsername ON wall_post(username) STORING (caption, media_id, timestamp_created)
 
