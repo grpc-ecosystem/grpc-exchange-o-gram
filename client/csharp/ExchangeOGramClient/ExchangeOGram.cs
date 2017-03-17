@@ -23,40 +23,40 @@ namespace ExchangeOGram {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChVleGNoYW5nZV9vX2dyYW0ucHJvdG8SD2V4Y2hhbmdlX29fZ3JhbSInCgVJ",
-            "bWFnZRIQCghmaWxlbmFtZRgBIAEoCRIMCgRkYXRhGAIgASgMIhgKCldhbGxQ",
-            "b3N0SWQSCgoCaWQYASABKAMiFQoHTWVkaWFJZBIKCgJpZBgBIAEoAyKCAQoI",
+            "bWFnZRIQCghtaW1ldHlwZRgBIAEoCRIMCgRkYXRhGAIgASgMIhgKCldhbGxQ",
+            "b3N0SWQSCgoCaWQYASABKAMiFQoHTWVkaWFJZBIKCgJpZBgBIAEoAyKdAQoI",
             "V2FsbFBvc3QSJwoCaWQYASABKAsyGy5leGNoYW5nZV9vX2dyYW0uV2FsbFBv",
             "c3RJZBIQCgh1c2VybmFtZRgCIAEoCRIPCgdjYXB0aW9uGAMgASgJEioKCG1l",
-            "ZGlhX2lkGAQgASgLMhguZXhjaGFuZ2Vfb19ncmFtLk1lZGlhSWQiOwoTVXBs",
-            "b2FkSW1hZ2VSZXNwb25zZRIkCgJpZBgBIAEoCzIYLmV4Y2hhbmdlX29fZ3Jh",
-            "bS5NZWRpYUlkIjsKElVwbG9hZEltYWdlUmVxdWVzdBIlCgVpbWFnZRgBIAEo",
-            "CzIWLmV4Y2hhbmdlX29fZ3JhbS5JbWFnZSI8ChREb3dubG9hZEltYWdlUmVx",
-            "dWVzdBIkCgJpZBgBIAEoCzIYLmV4Y2hhbmdlX29fZ3JhbS5NZWRpYUlkIj4K",
-            "FURvd25sb2FkSW1hZ2VSZXNwb25zZRIlCgVpbWFnZRgBIAEoCzIWLmV4Y2hh",
-            "bmdlX29fZ3JhbS5JbWFnZSI8ChFQb3N0VG9XYWxsUmVxdWVzdBInCgRwb3N0",
-            "GAEgASgLMhkuZXhjaGFuZ2Vfb19ncmFtLldhbGxQb3N0Ij0KElBvc3RUb1dh",
-            "bGxSZXNwb25zZRInCgJpZBgBIAEoCzIbLmV4Y2hhbmdlX29fZ3JhbS5XYWxs",
-            "UG9zdElkIjYKE0dldFdhbGxQb3N0c1JlcXVlc3QSEAoIdXNlcm5hbWUYASAB",
-            "KAkSDQoFbGltaXQYAiABKAUiPwoUR2V0V2FsbFBvc3RzUmVzcG9uc2USJwoE",
-            "cG9zdBgBIAEoCzIZLmV4Y2hhbmdlX29fZ3JhbS5XYWxsUG9zdDLMAQoMTWVk",
-            "aWFTZXJ2aWNlEloKC1VwbG9hZEltYWdlEiMuZXhjaGFuZ2Vfb19ncmFtLlVw",
-            "bG9hZEltYWdlUmVxdWVzdBokLmV4Y2hhbmdlX29fZ3JhbS5VcGxvYWRJbWFn",
-            "ZVJlc3BvbnNlIgASYAoNRG93bmxvYWRJbWFnZRIlLmV4Y2hhbmdlX29fZ3Jh",
-            "bS5Eb3dubG9hZEltYWdlUmVxdWVzdBomLmV4Y2hhbmdlX29fZ3JhbS5Eb3du",
-            "bG9hZEltYWdlUmVzcG9uc2UiADLHAQoLV2FsbFNlcnZpY2USVwoKUG9zdFRv",
-            "V2FsbBIiLmV4Y2hhbmdlX29fZ3JhbS5Qb3N0VG9XYWxsUmVxdWVzdBojLmV4",
-            "Y2hhbmdlX29fZ3JhbS5Qb3N0VG9XYWxsUmVzcG9uc2UiABJfCgxHZXRXYWxs",
-            "UG9zdHMSJC5leGNoYW5nZV9vX2dyYW0uR2V0V2FsbFBvc3RzUmVxdWVzdBol",
-            "LmV4Y2hhbmdlX29fZ3JhbS5HZXRXYWxsUG9zdHNSZXNwb25zZSIAMAFCMgoc",
-            "aW8uZ3JwYy5kZW1vLmV4Y2hhbmdlX29fZ3JhbUISRXhjaGFuZ2VPR3JhbVBy",
-            "b3RvYgZwcm90bzM="));
+            "ZGlhX2lkGAQgASgLMhguZXhjaGFuZ2Vfb19ncmFtLk1lZGlhSWQSGQoRdGlt",
+            "ZXN0YW1wX2NyZWF0ZWQYBSABKAMiOwoTVXBsb2FkSW1hZ2VSZXNwb25zZRIk",
+            "CgJpZBgBIAEoCzIYLmV4Y2hhbmdlX29fZ3JhbS5NZWRpYUlkIjsKElVwbG9h",
+            "ZEltYWdlUmVxdWVzdBIlCgVpbWFnZRgBIAEoCzIWLmV4Y2hhbmdlX29fZ3Jh",
+            "bS5JbWFnZSI8ChREb3dubG9hZEltYWdlUmVxdWVzdBIkCgJpZBgBIAEoCzIY",
+            "LmV4Y2hhbmdlX29fZ3JhbS5NZWRpYUlkIj4KFURvd25sb2FkSW1hZ2VSZXNw",
+            "b25zZRIlCgVpbWFnZRgBIAEoCzIWLmV4Y2hhbmdlX29fZ3JhbS5JbWFnZSI8",
+            "ChFQb3N0VG9XYWxsUmVxdWVzdBInCgRwb3N0GAEgASgLMhkuZXhjaGFuZ2Vf",
+            "b19ncmFtLldhbGxQb3N0Ij0KElBvc3RUb1dhbGxSZXNwb25zZRInCgJpZBgB",
+            "IAEoCzIbLmV4Y2hhbmdlX29fZ3JhbS5XYWxsUG9zdElkIjYKE0dldFdhbGxQ",
+            "b3N0c1JlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkSDQoFbGltaXQYAiABKAUi",
+            "PwoUR2V0V2FsbFBvc3RzUmVzcG9uc2USJwoEcG9zdBgBIAEoCzIZLmV4Y2hh",
+            "bmdlX29fZ3JhbS5XYWxsUG9zdDLMAQoMTWVkaWFTZXJ2aWNlEloKC1VwbG9h",
+            "ZEltYWdlEiMuZXhjaGFuZ2Vfb19ncmFtLlVwbG9hZEltYWdlUmVxdWVzdBok",
+            "LmV4Y2hhbmdlX29fZ3JhbS5VcGxvYWRJbWFnZVJlc3BvbnNlIgASYAoNRG93",
+            "bmxvYWRJbWFnZRIlLmV4Y2hhbmdlX29fZ3JhbS5Eb3dubG9hZEltYWdlUmVx",
+            "dWVzdBomLmV4Y2hhbmdlX29fZ3JhbS5Eb3dubG9hZEltYWdlUmVzcG9uc2Ui",
+            "ADLHAQoLV2FsbFNlcnZpY2USVwoKUG9zdFRvV2FsbBIiLmV4Y2hhbmdlX29f",
+            "Z3JhbS5Qb3N0VG9XYWxsUmVxdWVzdBojLmV4Y2hhbmdlX29fZ3JhbS5Qb3N0",
+            "VG9XYWxsUmVzcG9uc2UiABJfCgxHZXRXYWxsUG9zdHMSJC5leGNoYW5nZV9v",
+            "X2dyYW0uR2V0V2FsbFBvc3RzUmVxdWVzdBolLmV4Y2hhbmdlX29fZ3JhbS5H",
+            "ZXRXYWxsUG9zdHNSZXNwb25zZSIAMAFCMgocaW8uZ3JwYy5kZW1vLmV4Y2hh",
+            "bmdlX29fZ3JhbUISRXhjaGFuZ2VPR3JhbVByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.Image), global::ExchangeOGram.Image.Parser, new[]{ "Filename", "Data" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.Image), global::ExchangeOGram.Image.Parser, new[]{ "Mimetype", "Data" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.WallPostId), global::ExchangeOGram.WallPostId.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.MediaId), global::ExchangeOGram.MediaId.Parser, new[]{ "Id" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.WallPost), global::ExchangeOGram.WallPost.Parser, new[]{ "Id", "Username", "Caption", "MediaId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.WallPost), global::ExchangeOGram.WallPost.Parser, new[]{ "Id", "Username", "Caption", "MediaId", "TimestampCreated" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.UploadImageResponse), global::ExchangeOGram.UploadImageResponse.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.UploadImageRequest), global::ExchangeOGram.UploadImageRequest.Parser, new[]{ "Image" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.DownloadImageRequest), global::ExchangeOGram.DownloadImageRequest.Parser, new[]{ "Id" }, null, null, null),
@@ -95,7 +95,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Image(Image other) : this() {
-      filename_ = other.filename_;
+      mimetype_ = other.mimetype_;
       data_ = other.data_;
     }
 
@@ -104,14 +104,14 @@ namespace ExchangeOGram {
       return new Image(this);
     }
 
-    /// <summary>Field number for the "filename" field.</summary>
-    public const int FilenameFieldNumber = 1;
-    private string filename_ = "";
+    /// <summary>Field number for the "mimetype" field.</summary>
+    public const int MimetypeFieldNumber = 1;
+    private string mimetype_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Filename {
-      get { return filename_; }
+    public string Mimetype {
+      get { return mimetype_; }
       set {
-        filename_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        mimetype_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -139,7 +139,7 @@ namespace ExchangeOGram {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Filename != other.Filename) return false;
+      if (Mimetype != other.Mimetype) return false;
       if (Data != other.Data) return false;
       return true;
     }
@@ -147,7 +147,7 @@ namespace ExchangeOGram {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Filename.Length != 0) hash ^= Filename.GetHashCode();
+      if (Mimetype.Length != 0) hash ^= Mimetype.GetHashCode();
       if (Data.Length != 0) hash ^= Data.GetHashCode();
       return hash;
     }
@@ -159,9 +159,9 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Filename.Length != 0) {
+      if (Mimetype.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Filename);
+        output.WriteString(Mimetype);
       }
       if (Data.Length != 0) {
         output.WriteRawTag(18);
@@ -172,8 +172,8 @@ namespace ExchangeOGram {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Filename.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Filename);
+      if (Mimetype.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Mimetype);
       }
       if (Data.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Data);
@@ -186,8 +186,8 @@ namespace ExchangeOGram {
       if (other == null) {
         return;
       }
-      if (other.Filename.Length != 0) {
-        Filename = other.Filename;
+      if (other.Mimetype.Length != 0) {
+        Mimetype = other.Mimetype;
       }
       if (other.Data.Length != 0) {
         Data = other.Data;
@@ -203,7 +203,7 @@ namespace ExchangeOGram {
             input.SkipLastField();
             break;
           case 10: {
-            Filename = input.ReadString();
+            Mimetype = input.ReadString();
             break;
           }
           case 18: {
@@ -484,6 +484,7 @@ namespace ExchangeOGram {
       username_ = other.username_;
       caption_ = other.caption_;
       MediaId = other.mediaId_ != null ? other.MediaId.Clone() : null;
+      timestampCreated_ = other.timestampCreated_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -538,6 +539,20 @@ namespace ExchangeOGram {
       }
     }
 
+    /// <summary>Field number for the "timestamp_created" field.</summary>
+    public const int TimestampCreatedFieldNumber = 5;
+    private long timestampCreated_;
+    /// <summary>
+    /// UTC seconds since epoch
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long TimestampCreated {
+      get { return timestampCreated_; }
+      set {
+        timestampCreated_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as WallPost);
@@ -555,6 +570,7 @@ namespace ExchangeOGram {
       if (Username != other.Username) return false;
       if (Caption != other.Caption) return false;
       if (!object.Equals(MediaId, other.MediaId)) return false;
+      if (TimestampCreated != other.TimestampCreated) return false;
       return true;
     }
 
@@ -565,6 +581,7 @@ namespace ExchangeOGram {
       if (Username.Length != 0) hash ^= Username.GetHashCode();
       if (Caption.Length != 0) hash ^= Caption.GetHashCode();
       if (mediaId_ != null) hash ^= MediaId.GetHashCode();
+      if (TimestampCreated != 0L) hash ^= TimestampCreated.GetHashCode();
       return hash;
     }
 
@@ -591,6 +608,10 @@ namespace ExchangeOGram {
         output.WriteRawTag(34);
         output.WriteMessage(MediaId);
       }
+      if (TimestampCreated != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(TimestampCreated);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -607,6 +628,9 @@ namespace ExchangeOGram {
       }
       if (mediaId_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(MediaId);
+      }
+      if (TimestampCreated != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TimestampCreated);
       }
       return size;
     }
@@ -633,6 +657,9 @@ namespace ExchangeOGram {
           mediaId_ = new global::ExchangeOGram.MediaId();
         }
         MediaId.MergeFrom(other.MediaId);
+      }
+      if (other.TimestampCreated != 0L) {
+        TimestampCreated = other.TimestampCreated;
       }
     }
 
@@ -664,6 +691,10 @@ namespace ExchangeOGram {
               mediaId_ = new global::ExchangeOGram.MediaId();
             }
             input.ReadMessage(mediaId_);
+            break;
+          }
+          case 40: {
+            TimestampCreated = input.ReadInt64();
             break;
           }
         }
