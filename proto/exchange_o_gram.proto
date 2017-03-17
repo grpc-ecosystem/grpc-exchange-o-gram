@@ -26,6 +26,7 @@ message WallPost {
     string username = 2;  // username of the author
     string caption = 3;
     MediaId media_id = 4;
+    int64 timestamp_created = 5;  // UTC seconds since epoch
 }
 
 message UploadImageResponse {
@@ -71,4 +72,3 @@ service WallService {
     rpc PostToWall (PostToWallRequest) returns (PostToWallResponse) {}
     rpc GetWallPosts(GetWallPostsRequest) returns (stream GetWallPostsResponse) {}
 }
-

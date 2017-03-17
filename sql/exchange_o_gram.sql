@@ -11,6 +11,7 @@ CREATE TABLE wall_post (
   username STRING(64) NOT NULL,
   caption STRING(MAX) NOT NULL,
   media_id INT64,
+  timestamp_created INT64 NOT NULL,
 ) PRIMARY KEY(id);
 
 CREATE INDEX PostsByUsername ON wall_post(username) STORING (caption, media_id)
