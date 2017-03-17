@@ -10,7 +10,7 @@ CREATE TABLE wall_post (
   id INT64 NOT NULL,
   username STRING(64) NOT NULL,
   caption STRING(MAX) NOT NULL,
-  media_id INT64 NOT NULL,
+  media_id INT64,
 ) PRIMARY KEY(id);
 
 CREATE INDEX PostsByUsername ON wall_post(username) STORING (caption, media_id)

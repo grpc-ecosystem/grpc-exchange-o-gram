@@ -15,7 +15,8 @@ namespace ExchangeOGram
 
         public ClientProvider()
         {
-            this.channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
+            // TODO: close the channel somewhere
+            this.channel = new Channel("localhost:8181", ChannelCredentials.Insecure);
             this.wallClient = new WallService.WallServiceClient(channel);
             this.mediaClient = new MediaService.MediaServiceClient(channel);
         }
@@ -27,6 +28,12 @@ namespace ExchangeOGram
 
         public MediaService.MediaServiceClient MediaClient {
             get => mediaClient;
+        }
+
+        // TODO: move elsewhere
+        public string Username
+        {
+            get => "testuser";
         }
     }
 }
