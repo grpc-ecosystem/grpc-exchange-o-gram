@@ -31,7 +31,7 @@ namespace ExchangeOGram.Controllers
             var imageData = response.Image.Data.ToByteArray();
             //var imageData = new byte[] {  };
             //var imageData = System.IO.File.OpenRead("C:\\Users\\jtattermusch\\kitten-2.jpg");
-            return File(imageData, "image/jpeg");
+            return File(imageData, response.Image.Mimetype);
         }
         
     }

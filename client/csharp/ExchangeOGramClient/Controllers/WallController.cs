@@ -74,13 +74,13 @@ namespace ExchangeOGram.Controllers
                     {
                         var memoryStream = new MemoryStream();
                         mediaStream.CopyTo(memoryStream);
-                        
+
                         UploadImageResponse uploadResponse = await clientProvider.MediaClient.UploadImageAsync(new UploadImageRequest
                         {
                             Image = new Image
                             {
                                 Data = ByteString.CopyFrom(memoryStream.ToArray()),
-                                Filename = "image/jpeg"
+                                Mimetype = mediaFile.ContentType
                             }
                         });
                         wallPost.MediaId = uploadResponse.Id;
