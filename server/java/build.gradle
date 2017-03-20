@@ -9,6 +9,7 @@ apply plugin: 'idea'
 mainClassName = "io.grpc.demo.exchange_o_gram.ExchangeOGramServer"
 
 repositories {
+    maven { url uri("./libs/") }
     maven { url "https://plugins.gradle.org/m2/" }
 }
 
@@ -22,10 +23,11 @@ buildscript {
 }
 
 dependencies {
-    compile 'io.grpc:grpc-netty:1.0.3'
-    compile 'io.grpc:grpc-protobuf:1.0.3'
-    compile 'io.grpc:grpc-stub:1.0.3'
-    compile 'com.google.cloud:google-cloud-spanner:0.9.4-beta'
+    compile 'io.grpc:grpc-netty:1.2.0'
+    compile 'io.grpc:grpc-protobuf:1.2.0'
+    compile 'io.grpc:grpc-stub:1.2.0'
+    compile 'io.grpc:grpc-services:1.2.0'
+    compile 'com.google.cloud:google-cloud-spanner:0.10.0-beta-SNAPSHOT'
     protobuf fileTree("../../proto/")
 }
 
@@ -39,7 +41,7 @@ protobuf {
         // the identifier, which can be referred to in the "plugins"
         // container of the "generateProtoTasks" closure.
         grpc {
-            artifact = 'io.grpc:protoc-gen-grpc-java:1.0.3'
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.2.0'
         }
     }
     generateProtoTasks {

@@ -2,6 +2,7 @@ package io.grpc.demo.exchange_o_gram;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import io.grpc.protobuf.services.ProtoReflectionService;
 import java.io.IOException;
 
 public class ExchangeOGramServer {
@@ -12,11 +13,12 @@ public class ExchangeOGramServer {
         .forPort(port)
         .addService(new WallService())
         .addService(new MediaService())
+        // Remove before the demo, and then show how easy it is to add reflection.
+        .addService(ProtoReflectionService.newInstance())
         .build();
     server.start();
     System.out.println("Server started on port: " + port);
     server.awaitTermination();
-
 
 // I used this to do a quick test of the functionality
 //    WallService ws = new WallService();
