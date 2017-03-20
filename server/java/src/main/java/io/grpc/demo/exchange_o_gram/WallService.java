@@ -75,13 +75,15 @@ public class WallService extends WallServiceImplBase {
     // TODO: validate
     DatabaseClient dbClient = spanner.getDatabaseClient(databaseId);
 
-    KeySet usernameKey = KeySet.singleKey(Key.of(request.getUsername()));
-    String query = "SELECT id, username, caption, media_id, timestamp_created FROM wall_post ORDER BY timestamp_created DESC";
+    Statement stmt =
+        Statement.newBuilder("SELECT id, username, caption, media_id, timestamp_created FROM wall_post WHERE username = @username ORDER BY timestamp_created DESC")
+            .bind("username").to(request.getUsername())
+            .build();
 
     try(ResultSet resultSet =
         dbClient
             .singleUse()
-            .executeQuery(Statement.of(query))) {
+            .executeQuery(stmt)) {
       
       while (resultSet.next()) {
         WallPost.Builder postBuilder = WallPost.newBuilder();
