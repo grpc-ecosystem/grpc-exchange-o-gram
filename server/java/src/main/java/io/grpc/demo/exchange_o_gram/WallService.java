@@ -13,6 +13,7 @@ import com.google.cloud.spanner.Mutation.WriteBuilder;
 import com.google.cloud.spanner.ResultSet;
 import com.google.cloud.spanner.Spanner;
 import com.google.cloud.spanner.SpannerOptions;
+import com.google.cloud.spanner.Statement;
 import io.grpc.demo.exchange_o_gram.ExchangeOGramProto.GetWallPostsRequest;
 import io.grpc.demo.exchange_o_gram.ExchangeOGramProto.GetWallPostsResponse;
 import io.grpc.demo.exchange_o_gram.ExchangeOGramProto.MediaId;
@@ -75,12 +76,12 @@ public class WallService extends WallServiceImplBase {
     DatabaseClient dbClient = spanner.getDatabaseClient(databaseId);
 
     KeySet usernameKey = KeySet.singleKey(Key.of(request.getUsername()));
-    Iterable<String> columns = Arrays.asList("id", "username", "caption", "media_id", "timestamp_created");
+    String query = "SELECT id, username, caption, media_id, timestamp_created FROM wall_post ORDER BY timestamp_created DESC";
 
-    // TODO: return wall posts ORDER BY timestamp_created DESC
-    try(ResultSet resultSet = dbClient.singleUse()
-        .readUsingIndex("wall_post", "PostsByUsername", usernameKey, columns)) {
-
+    try(ResultSet resultSet =
+        dbClient
+            .singleUse()
+            .executeQuery(Statement.of(query))) {
       
       while (resultSet.next()) {
         WallPost.Builder postBuilder = WallPost.newBuilder();
