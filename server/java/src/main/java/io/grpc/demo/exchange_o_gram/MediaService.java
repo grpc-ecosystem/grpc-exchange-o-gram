@@ -66,7 +66,6 @@ public class MediaService extends MediaServiceImplBase {
       StreamObserver<DownloadImageResponse> responseObserver) {
 
     DatabaseClient dbClient = spanner.getDatabaseClient(databaseId);
-
     Key mediaId = Key.of(request.getId().getId());
 
     Struct row =

@@ -19,19 +19,19 @@ namespace ExchangeOGram.Controllers
             this.clientProvider = clientProvider;
         }
 
-        public async Task<IActionResult> GetById(long mediaId)
+        public async Task<IActionResult> GetById(long? id)
         {
-            // var client = clientProvider.MediaClient;
+            var client = clientProvider.MediaClient;
 
-            // var response = await client.DownloadImageAsync(new DownloadImageRequest
-            // {
-            //     Id = new MediaId { Id = mediaId }
-            // });
+            var response = await client.DownloadImageAsync(new DownloadImageRequest
+            {
+                 Id = new MediaId { Id = id.Value }
+            });
 
-            // var bytes = response.Image.Data.ToByteArray();
+            var imageData = response.Image.Data.ToByteArray();
             //var imageData = new byte[] {  };
-            var imageData = System.IO.File.OpenRead("C:\\Users\\jtattermusch\\kitten-2.jpg");
-            return File(imageData, "image/jpeg");
+            //var imageData = System.IO.File.OpenRead("C:\\Users\\jtattermusch\\kitten-2.jpg");
+            return File(imageData, response.Image.Mimetype);
         }
         
     }

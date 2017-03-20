@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using Grpc.Core.Utils;
 using ExchangeOGram;
+using Google.Protobuf;
+using System.IO;
 
 namespace ExchangeOGram.Controllers
 {
@@ -25,28 +27,28 @@ namespace ExchangeOGram.Controllers
         {
             var client = clientProvider.WallClient;
 
-            //var call = client.GetWallPosts(new ExchangeOGram.GetWallPostsRequest
-            //{
-            //    Username = "someuser"
-            //});
+            var call = client.GetWallPosts(new ExchangeOGram.GetWallPostsRequest
+            {
+                Username = clientProvider.Username
+            });
 
             // read all posts
-            //var responses = await call.ResponseStream.ToListAsync();
-            //var wallPosts = new List<WallPost>(responses.Select(r => r.Post));
-            var wallPosts = new List<WallPost>
-            {
-                new WallPost
-                {
-                    Caption = "I love this app!",
-                    Username = "johnsmith"
-                },
-                new WallPost
-                {
-                    Caption = "This post is now on-the-line.",
-                    Username = "exchangeogram_fan",
-                    MediaId = new MediaId { Id = 10 }
-                }
-            };
+            var responses = await call.ResponseStream.ToListAsync();
+            var wallPosts = new List<WallPost>(responses.Select(r => r.Post));
+            //var wallPosts = new List<WallPost>
+            //{
+            //    new WallPost
+            //    {
+            //        Caption = "I love this app!",
+            //        Username = "johnsmith"
+            //    },
+            //    new WallPost
+            //    {
+            //        Caption = "This post is now on-the-line.",
+            //        Username = "exchangeogram_fan",
+            //        MediaId = new MediaId { Id = 10 }
+            //    }
+            //};
 
             return View(new ViewModels.Wall.Index()
             {
@@ -63,21 +65,32 @@ namespace ExchangeOGram.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> AddPost([Bind("Caption")] WallPost wallPost, IFormFile mediaFile)
         {
-        
+            wallPost.Username = clientProvider.Username;
             if (ModelState.IsValid)
             {
-                
-                using (var mediaStream = mediaFile.OpenReadStream())
+                if (mediaFile != null)
                 {
-                
+                    using (var mediaStream = mediaFile.OpenReadStream())
+                    {
+                        var memoryStream = new MemoryStream();
+                        mediaStream.CopyTo(memoryStream);
+
+                        UploadImageResponse uploadResponse = await clientProvider.MediaClient.UploadImageAsync(new UploadImageRequest
+                        {
+                            Image = new Image
+                            {
+                                Data = ByteString.CopyFrom(memoryStream.ToArray()),
+                                Mimetype = mediaFile.ContentType
+                            }
+                        });
+                        wallPost.MediaId = uploadResponse.Id;
+                    }
                 }
                 
-
-                //wallPost.Username = "someuser";
-                //await clientProvider.Client.PostToWallAsync(new PostToWallRequest
-                //{
-                //    Post = wallPost
-                //});
+                await clientProvider.WallClient.PostToWallAsync(new PostToWallRequest
+                {
+                    Post = wallPost
+                });
 
                 return RedirectToAction("Index");
             }
