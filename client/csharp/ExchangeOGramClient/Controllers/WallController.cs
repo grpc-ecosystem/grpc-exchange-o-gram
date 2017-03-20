@@ -63,11 +63,11 @@ namespace ExchangeOGram.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> AddPost([Bind("Caption")] WallPost wallPost, IFormFile mediaFile)
+        public async Task<ActionResult> AddPost(ViewModels.Wall.Form form, IFormFile mediaFile)
         {
-            wallPost.Username = clientProvider.Username;
             if (ModelState.IsValid)
             {
+                MediaId mediaId = null;
                 if (mediaFile != null)
                 {
                     using (var mediaStream = mediaFile.OpenReadStream())
@@ -83,13 +83,18 @@ namespace ExchangeOGram.Controllers
                                 Mimetype = mediaFile.ContentType
                             }
                         });
-                        wallPost.MediaId = uploadResponse.Id;
+                        mediaId = uploadResponse.Id;
                     }
                 }
                 
                 await clientProvider.WallClient.PostToWallAsync(new PostToWallRequest
                 {
-                    Post = wallPost
+                    Post = new WallPost
+                    {
+                        Username = clientProvider.Username,
+                        Caption = form.Caption,
+                        MediaId = mediaId
+                     }
                 });
 
                 return RedirectToAction("Index");
@@ -102,7 +107,7 @@ namespace ExchangeOGram.Controllers
         {
             var form = new ViewModels.Wall.Form()
             {
-                WallPost = new WallPost()
+                Caption = ""
             };
             return View("/Views/Wall/Form.cshtml", form);
         }
