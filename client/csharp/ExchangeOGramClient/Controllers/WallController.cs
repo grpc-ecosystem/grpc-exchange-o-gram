@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using Grpc.Core.Utils;
-using ExchangeOGram;
 using Google.Protobuf;
 using System.IO;
 
@@ -35,20 +33,6 @@ namespace ExchangeOGram.Controllers
             // read all posts
             var responses = await call.ResponseStream.ToListAsync();
             var wallPosts = new List<WallPost>(responses.Select(r => r.Post));
-            //var wallPosts = new List<WallPost>
-            //{
-            //    new WallPost
-            //    {
-            //        Caption = "I love this app!",
-            //        Username = "johnsmith"
-            //    },
-            //    new WallPost
-            //    {
-            //        Caption = "This post is now on-the-line.",
-            //        Username = "exchangeogram_fan",
-            //        MediaId = new MediaId { Id = 10 }
-            //    }
-            //};
 
             return View(new ViewModels.Wall.Index()
             {
@@ -101,7 +85,6 @@ namespace ExchangeOGram.Controllers
             }
             return ViewForm();
         }
-
 
         private ActionResult ViewForm()
         {

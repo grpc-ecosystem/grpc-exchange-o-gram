@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Hosting;
-using Grpc.Core.Utils;
-using ExchangeOGram;
 
 namespace ExchangeOGram.Controllers
 {
@@ -29,10 +22,7 @@ namespace ExchangeOGram.Controllers
             });
 
             var imageData = response.Image.Data.ToByteArray();
-            //var imageData = new byte[] {  };
-            //var imageData = System.IO.File.OpenRead("C:\\Users\\jtattermusch\\kitten-2.jpg");
             return File(imageData, response.Image.Mimetype);
         }
-        
     }
 }
