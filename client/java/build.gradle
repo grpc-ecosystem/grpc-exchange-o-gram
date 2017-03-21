@@ -1,16 +1,14 @@
-group 'io.grpc'
+group 'foo'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'com.google.protobuf'
-apply plugin:'application'
 apply plugin: 'idea'
 
-mainClassName = "io.grpc.demo.exchange_o_gram.ExchangeOGramServer"
+sourceCompatibility = 1.5
 
 repositories {
-    maven { url uri("./libs/") }
-    maven { url "https://plugins.gradle.org/m2/" }
+    mavenCentral()
 }
 
 buildscript {
@@ -21,17 +19,6 @@ buildscript {
         classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.1'
     }
 }
-
-dependencies {
-    compile 'io.grpc:grpc-netty:1.2.0'
-    compile 'io.grpc:grpc-protobuf:1.2.0'
-    compile 'io.grpc:grpc-stub:1.2.0'
-    compile 'io.grpc:grpc-services:1.2.0'
-    compile 'io.netty:netty-tcnative-boringssl-static:1.1.33.Fork26'
-    compile 'com.google.cloud:google-cloud-spanner:0.10.0-beta-SNAPSHOT'
-    protobuf fileTree("../../proto/")
-}
-
 protobuf {
     protoc {
         // The artifact spec for the Protobuf Compiler
@@ -54,6 +41,17 @@ protobuf {
             grpc { }
         }
     }
+}
+
+
+dependencies {
+    compile 'io.grpc:grpc-netty:1.2.0'
+    compile 'io.grpc:grpc-protobuf:1.2.0'
+    compile 'io.grpc:grpc-stub:1.2.0'
+    compile 'io.netty:netty-tcnative-boringssl-static:1.1.33.Fork26'
+    protobuf fileTree("../../proto/")
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
 idea {

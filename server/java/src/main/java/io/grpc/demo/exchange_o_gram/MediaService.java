@@ -1,6 +1,6 @@
 package io.grpc.demo.exchange_o_gram;
 
-import static io.grpc.demo.exchange_o_gram.SpannerUtil.*;
+import static io.grpc.demo.exchange_o_gram.Utils.*;
 import static java.util.Arrays.asList;
 
 import com.google.cloud.ByteArray;

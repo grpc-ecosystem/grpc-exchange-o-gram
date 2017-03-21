@@ -1,15 +1,12 @@
 package io.grpc.demo.exchange_o_gram;
 
-import static io.grpc.demo.exchange_o_gram.SpannerUtil.DATABASE_ID;
-import static io.grpc.demo.exchange_o_gram.SpannerUtil.INSTANCE_ID;
+import static io.grpc.demo.exchange_o_gram.Utils.DATABASE_ID;
+import static io.grpc.demo.exchange_o_gram.Utils.INSTANCE_ID;
 import static java.util.Collections.singletonList;
 
 import com.google.cloud.spanner.DatabaseClient;
 import com.google.cloud.spanner.DatabaseId;
-import com.google.cloud.spanner.Key;
-import com.google.cloud.spanner.KeySet;
 import com.google.cloud.spanner.Mutation;
-import com.google.cloud.spanner.Mutation.WriteBuilder;
 import com.google.cloud.spanner.ResultSet;
 import com.google.cloud.spanner.Spanner;
 import com.google.cloud.spanner.SpannerOptions;
@@ -24,7 +21,6 @@ import io.grpc.demo.exchange_o_gram.ExchangeOGramProto.WallPostId;
 import io.grpc.demo.exchange_o_gram.WallServiceGrpc.WallServiceImplBase;
 import io.grpc.stub.StreamObserver;
 import java.time.Instant;
-import java.util.Arrays;
 import java.util.UUID;
 
 public class WallService extends WallServiceImplBase {
