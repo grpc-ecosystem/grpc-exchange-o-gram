@@ -27,6 +27,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gcr.io/grpc-kubecon-demo2017/csharpfrontend:test4
+        image: gcr.io/grpc-kubecon-demo2017/csharpfrontend:test5
         ports:
         - containerPort: 8080

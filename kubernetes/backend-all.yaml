@@ -7,7 +7,7 @@ metadata:
     tier: backend
 spec:
   ports:
-  - port: 8081
+  - port: 8433
   selector:
     app: exchangeogram
     tier: backend
@@ -26,6 +26,6 @@ spec:
     spec:
       containers:
       - name: backend
-        image: gcr.io/grpc-kubecon-demo2017/javabackend:test1
+        image: gcr.io/grpc-kubecon-demo2017/javabackend:test2
         ports:
-        - containerPort: 8081
+        - containerPort: 8433
