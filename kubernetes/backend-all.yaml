@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels:
+    app: exchangeogram
+    tier: backend
+spec:
+  ports:
+  - port: 8081
+  selector:
+    app: exchangeogram
+    tier: backend
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: exchangeogram
+        tier: backend
+    spec:
+      containers:
+      - name: backend
+        image: gcr.io/grpc-kubecon-demo2017/javabackend:test1
+        ports:
+        - containerPort: 8081

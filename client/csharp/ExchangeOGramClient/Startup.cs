@@ -40,15 +40,10 @@ namespace ExchangeOGram
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
+            // WARNING: Normally, we should only expose exceptions
+            // while in dev mode, but for demo purposes this is fine.
+            app.UseDeveloperExceptionPage();
+            app.UseBrowserLink();
 
             app.UseStaticFiles();
 
