@@ -28,6 +28,10 @@ dependencies {
     compile 'io.grpc:grpc-stub:1.2.0'
     compile 'io.grpc:grpc-services:1.2.0'
     compile 'io.netty:netty-tcnative-boringssl-static:1.1.33.Fork26'
+    // The gRPC version used by cloud spanner is not compatible with the
+    // latest gRPC version, because cloud spanner depends on an experimental
+    // gRPC API that changed. Will be fixed with the next cloud spanner
+    // release: https://github.com/GoogleCloudPlatform/google-cloud-java/issues/1691
     compile 'com.google.cloud:google-cloud-spanner:0.10.0-beta-SNAPSHOT'
     protobuf fileTree("../../proto/")
 }
