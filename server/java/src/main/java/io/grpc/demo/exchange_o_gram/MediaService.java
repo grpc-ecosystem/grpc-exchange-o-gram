@@ -2,6 +2,7 @@ package io.grpc.demo.exchange_o_gram;
 
 import static io.grpc.demo.exchange_o_gram.Utils.*;
 import static java.util.Arrays.asList;
+import static java.util.Collections.singletonList;
 
 import com.google.cloud.ByteArray;
 import com.google.cloud.spanner.DatabaseClient;
@@ -39,24 +40,27 @@ public class MediaService extends MediaServiceImplBase {
   public void uploadImage(UploadImageRequest request,
       StreamObserver<UploadImageResponse> responseObserver) {
 
+    // The image to be uploaded.
     Image image = request.getImage();
 
-    DatabaseClient dbClient = spanner.getDatabaseClient(databaseId);
-
-    long imageId = UUID.randomUUID().getLeastSignificantBits();
-    Mutation newImage = Mutation.newInsertBuilder("media")
+    long id = newId();
+    Mutation newImage = Mutation
+        .newInsertBuilder("media")
         .set("id")
-        .to(imageId)
+        .to(id)
         .set("data")
-        .to(new ByteArray2(image.getData()))
+        .to(toByteArray(image.getData()))
         .set("mimetype")
         .to(image.getMimetype())
         .build();
 
-    dbClient.write(asList(newImage));
+    // Store the image in Spanner.
+    DatabaseClient dbClient = spanner.getDatabaseClient(databaseId);
+    dbClient.write(singletonList(newImage));
 
-    UploadImageResponse response =
-        UploadImageResponse.newBuilder().setId(MediaId.newBuilder().setId(imageId)).build();
+    // Send a response to the gRPC client.
+    MediaId mediaId = MediaId.newBuilder().setId(id).build();
+    UploadImageResponse response = UploadImageResponse.newBuilder().setId(mediaId).build();
     responseObserver.onNext(response);
     responseObserver.onCompleted();
   }
@@ -65,24 +69,22 @@ public class MediaService extends MediaServiceImplBase {
   public void downloadImage(DownloadImageRequest request,
       StreamObserver<DownloadImageResponse> responseObserver) {
 
+    // Fetch the image from Spanner.
     DatabaseClient dbClient = spanner.getDatabaseClient(databaseId);
     Key mediaId = Key.of(request.getId().getId());
+    Struct row = dbClient.singleUse().readRow("media", mediaId, asList("id", "data", "mimetype"));
 
-    Struct row =
-        dbClient.singleUse().readRow("media", mediaId, asList("id", "data", "mimetype"));
     if (row == null) {
       throw new NoSuchElementException("Image with id '" + mediaId + "' was not found.");
     }
 
     try {
-      ByteString data =
-          ByteString.readFrom(row.getBytes("data").asInputStream());
+      // Send the image to the gRPC client.
+      ByteString data = ByteString.readFrom(row.getBytes("data").asInputStream());
       String filetype = row.getString("mimetype");
+      Image image = Image.newBuilder().setData(data).setMimetype(filetype).build();
 
-      DownloadImageResponse response =
-          DownloadImageResponse.newBuilder()
-              .setImage(Image.newBuilder().setData(data).setMimetype(filetype).build())
-              .build();
+      DownloadImageResponse response = DownloadImageResponse.newBuilder().setImage(image).build();
 
       responseObserver.onNext(response);
       responseObserver.onCompleted();
@@ -91,11 +93,8 @@ public class MediaService extends MediaServiceImplBase {
     }
   }
 
-  // I ll open a PR on Google Cloud Spanner libraries so that this is no longer necessary.
-  private static class ByteArray2 extends ByteArray {
-
-    ByteArray2(ByteString byteString) {
-      super(byteString);
-    }
+  private static ByteArray toByteArray(ByteString bs) {
+    // This copy could be avoided: https://github.com/GoogleCloudPlatform/google-cloud-java/issues/1763
+    return ByteArray.copyFrom(bs.asReadOnlyByteBuffer());
   }
 }
