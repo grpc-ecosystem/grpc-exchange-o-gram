@@ -1,0 +1,14 @@
+﻿@model ExchangeOGram.ViewModels.Wall.Form
+
+<h3>New post</h3>
+<!-- [START form] -->
+<form action="/Wall/AddPost/" method="post" id="addpost-form" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(model => model.Caption)
+        @Html.EditorFor(model => model.Caption, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Caption, "", new { @class = "text-danger" })
+    </div>
+    <button type="submit" class="btn btn-success">Post!</button>
+</form>
+<!-- [END form] -->

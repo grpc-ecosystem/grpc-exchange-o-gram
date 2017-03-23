@@ -1,0 +1,74 @@
+// Protobuf definition for Exchange-O-Gram
+syntax = "proto3";
+
+package exchange_o_gram;
+
+option java_package = "io.grpc.demo.exchange_o_gram";
+option java_outer_classname = "ExchangeOGramProto";
+
+message Image {
+    string mimetype = 1;
+    bytes data = 2;
+}
+
+// TODO: maybe use Int64Value wrapper type for this
+message WallPostId {
+    int64 id = 1;
+}
+
+// TODO: maybe use Int64Value wrapper type for this
+message MediaId {
+    int64 id = 1;
+}
+
+message WallPost {
+    WallPostId id = 1;
+    string username = 2;  // username of the author
+    string caption = 3;
+    MediaId media_id = 4;
+    int64 timestamp_created = 5;  // UTC seconds since epoch
+}
+
+message UploadImageResponse {
+    MediaId id = 1;
+}
+
+message UploadImageRequest {
+    Image image = 1;
+}
+
+message DownloadImageRequest {
+    MediaId id = 1;
+}
+
+message DownloadImageResponse {
+    Image image = 1;
+}
+
+message PostToWallRequest {
+    WallPost post = 1;
+}
+
+message PostToWallResponse {
+    WallPostId id = 1;
+}
+
+message GetWallPostsRequest {
+    string username = 1;  // requests post authored by this user.
+    // Remove before demo, so we can show extensibility
+    int32 limit = 2;
+}
+
+message GetWallPostsResponse {
+    WallPost post = 1;
+}
+
+service MediaService {
+    rpc UploadImage (UploadImageRequest) returns (UploadImageResponse) {}
+    rpc DownloadImage(DownloadImageRequest) returns (DownloadImageResponse) {}
+}
+
+service WallService {
+    rpc PostToWall (PostToWallRequest) returns (PostToWallResponse) {}
+    rpc GetWallPosts(GetWallPostsRequest) returns (stream GetWallPostsResponse) {}
+}
