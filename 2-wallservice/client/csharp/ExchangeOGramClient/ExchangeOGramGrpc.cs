@@ -10,122 +10,6 @@ using System.Threading.Tasks;
 using Grpc.Core;
 
 namespace ExchangeOGram {
-  public static partial class MediaService
-  {
-    static readonly string __ServiceName = "exchange_o_gram.MediaService";
-
-    static readonly Marshaller<global::ExchangeOGram.UploadImageRequest> __Marshaller_UploadImageRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.UploadImageRequest.Parser.ParseFrom);
-    static readonly Marshaller<global::ExchangeOGram.UploadImageResponse> __Marshaller_UploadImageResponse = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.UploadImageResponse.Parser.ParseFrom);
-    static readonly Marshaller<global::ExchangeOGram.DownloadImageRequest> __Marshaller_DownloadImageRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.DownloadImageRequest.Parser.ParseFrom);
-    static readonly Marshaller<global::ExchangeOGram.DownloadImageResponse> __Marshaller_DownloadImageResponse = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.DownloadImageResponse.Parser.ParseFrom);
-
-    static readonly Method<global::ExchangeOGram.UploadImageRequest, global::ExchangeOGram.UploadImageResponse> __Method_UploadImage = new Method<global::ExchangeOGram.UploadImageRequest, global::ExchangeOGram.UploadImageResponse>(
-        MethodType.Unary,
-        __ServiceName,
-        "UploadImage",
-        __Marshaller_UploadImageRequest,
-        __Marshaller_UploadImageResponse);
-
-    static readonly Method<global::ExchangeOGram.DownloadImageRequest, global::ExchangeOGram.DownloadImageResponse> __Method_DownloadImage = new Method<global::ExchangeOGram.DownloadImageRequest, global::ExchangeOGram.DownloadImageResponse>(
-        MethodType.Unary,
-        __ServiceName,
-        "DownloadImage",
-        __Marshaller_DownloadImageRequest,
-        __Marshaller_DownloadImageResponse);
-
-    /// <summary>Service descriptor</summary>
-    public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
-    {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.Services[0]; }
-    }
-
-    /// <summary>Base class for server-side implementations of MediaService</summary>
-    public abstract partial class MediaServiceBase
-    {
-      public virtual global::System.Threading.Tasks.Task<global::ExchangeOGram.UploadImageResponse> UploadImage(global::ExchangeOGram.UploadImageRequest request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::ExchangeOGram.DownloadImageResponse> DownloadImage(global::ExchangeOGram.DownloadImageRequest request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-    }
-
-    /// <summary>Client for MediaService</summary>
-    public partial class MediaServiceClient : ClientBase<MediaServiceClient>
-    {
-      /// <summary>Creates a new client for MediaService</summary>
-      /// <param name="channel">The channel to use to make remote calls.</param>
-      public MediaServiceClient(Channel channel) : base(channel)
-      {
-      }
-      /// <summary>Creates a new client for MediaService that uses a custom <c>CallInvoker</c>.</summary>
-      /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
-      public MediaServiceClient(CallInvoker callInvoker) : base(callInvoker)
-      {
-      }
-      /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
-      protected MediaServiceClient() : base()
-      {
-      }
-      /// <summary>Protected constructor to allow creation of configured clients.</summary>
-      /// <param name="configuration">The client configuration.</param>
-      protected MediaServiceClient(ClientBaseConfiguration configuration) : base(configuration)
-      {
-      }
-
-      public virtual global::ExchangeOGram.UploadImageResponse UploadImage(global::ExchangeOGram.UploadImageRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return UploadImage(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::ExchangeOGram.UploadImageResponse UploadImage(global::ExchangeOGram.UploadImageRequest request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_UploadImage, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::ExchangeOGram.UploadImageResponse> UploadImageAsync(global::ExchangeOGram.UploadImageRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return UploadImageAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::ExchangeOGram.UploadImageResponse> UploadImageAsync(global::ExchangeOGram.UploadImageRequest request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_UploadImage, null, options, request);
-      }
-      public virtual global::ExchangeOGram.DownloadImageResponse DownloadImage(global::ExchangeOGram.DownloadImageRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return DownloadImage(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::ExchangeOGram.DownloadImageResponse DownloadImage(global::ExchangeOGram.DownloadImageRequest request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_DownloadImage, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::ExchangeOGram.DownloadImageResponse> DownloadImageAsync(global::ExchangeOGram.DownloadImageRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return DownloadImageAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::ExchangeOGram.DownloadImageResponse> DownloadImageAsync(global::ExchangeOGram.DownloadImageRequest request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_DownloadImage, null, options, request);
-      }
-      /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
-      protected override MediaServiceClient NewInstance(ClientBaseConfiguration configuration)
-      {
-        return new MediaServiceClient(configuration);
-      }
-    }
-
-    /// <summary>Creates service definition that can be registered with a server</summary>
-    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    public static ServerServiceDefinition BindService(MediaServiceBase serviceImpl)
-    {
-      return ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_UploadImage, serviceImpl.UploadImage)
-          .AddMethod(__Method_DownloadImage, serviceImpl.DownloadImage).Build();
-    }
-
-  }
   public static partial class WallService
   {
     static readonly string __ServiceName = "exchange_o_gram.WallService";
@@ -152,7 +36,7 @@ namespace ExchangeOGram {
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.Services[1]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.Services[0]; }
     }
 
     /// <summary>Base class for server-side implementations of WallService</summary>

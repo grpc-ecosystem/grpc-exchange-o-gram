@@ -22,45 +22,27 @@ namespace ExchangeOGram {
     static ExchangeOGramReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVleGNoYW5nZV9vX2dyYW0ucHJvdG8SD2V4Y2hhbmdlX29fZ3JhbSInCgVJ",
-            "bWFnZRIQCghtaW1ldHlwZRgBIAEoCRIMCgRkYXRhGAIgASgMIhgKCldhbGxQ",
-            "b3N0SWQSCgoCaWQYASABKAMiFQoHTWVkaWFJZBIKCgJpZBgBIAEoAyKdAQoI",
-            "V2FsbFBvc3QSJwoCaWQYASABKAsyGy5leGNoYW5nZV9vX2dyYW0uV2FsbFBv",
-            "c3RJZBIQCgh1c2VybmFtZRgCIAEoCRIPCgdjYXB0aW9uGAMgASgJEioKCG1l",
-            "ZGlhX2lkGAQgASgLMhguZXhjaGFuZ2Vfb19ncmFtLk1lZGlhSWQSGQoRdGlt",
-            "ZXN0YW1wX2NyZWF0ZWQYBSABKAMiOwoTVXBsb2FkSW1hZ2VSZXNwb25zZRIk",
-            "CgJpZBgBIAEoCzIYLmV4Y2hhbmdlX29fZ3JhbS5NZWRpYUlkIjsKElVwbG9h",
-            "ZEltYWdlUmVxdWVzdBIlCgVpbWFnZRgBIAEoCzIWLmV4Y2hhbmdlX29fZ3Jh",
-            "bS5JbWFnZSI8ChREb3dubG9hZEltYWdlUmVxdWVzdBIkCgJpZBgBIAEoCzIY",
-            "LmV4Y2hhbmdlX29fZ3JhbS5NZWRpYUlkIj4KFURvd25sb2FkSW1hZ2VSZXNw",
-            "b25zZRIlCgVpbWFnZRgBIAEoCzIWLmV4Y2hhbmdlX29fZ3JhbS5JbWFnZSI8",
-            "ChFQb3N0VG9XYWxsUmVxdWVzdBInCgRwb3N0GAEgASgLMhkuZXhjaGFuZ2Vf",
-            "b19ncmFtLldhbGxQb3N0Ij0KElBvc3RUb1dhbGxSZXNwb25zZRInCgJpZBgB",
-            "IAEoCzIbLmV4Y2hhbmdlX29fZ3JhbS5XYWxsUG9zdElkIjYKE0dldFdhbGxQ",
-            "b3N0c1JlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkSDQoFbGltaXQYAiABKAUi",
-            "PwoUR2V0V2FsbFBvc3RzUmVzcG9uc2USJwoEcG9zdBgBIAEoCzIZLmV4Y2hh",
-            "bmdlX29fZ3JhbS5XYWxsUG9zdDLMAQoMTWVkaWFTZXJ2aWNlEloKC1VwbG9h",
-            "ZEltYWdlEiMuZXhjaGFuZ2Vfb19ncmFtLlVwbG9hZEltYWdlUmVxdWVzdBok",
-            "LmV4Y2hhbmdlX29fZ3JhbS5VcGxvYWRJbWFnZVJlc3BvbnNlIgASYAoNRG93",
-            "bmxvYWRJbWFnZRIlLmV4Y2hhbmdlX29fZ3JhbS5Eb3dubG9hZEltYWdlUmVx",
-            "dWVzdBomLmV4Y2hhbmdlX29fZ3JhbS5Eb3dubG9hZEltYWdlUmVzcG9uc2Ui",
-            "ADLHAQoLV2FsbFNlcnZpY2USVwoKUG9zdFRvV2FsbBIiLmV4Y2hhbmdlX29f",
-            "Z3JhbS5Qb3N0VG9XYWxsUmVxdWVzdBojLmV4Y2hhbmdlX29fZ3JhbS5Qb3N0",
-            "VG9XYWxsUmVzcG9uc2UiABJfCgxHZXRXYWxsUG9zdHMSJC5leGNoYW5nZV9v",
-            "X2dyYW0uR2V0V2FsbFBvc3RzUmVxdWVzdBolLmV4Y2hhbmdlX29fZ3JhbS5H",
-            "ZXRXYWxsUG9zdHNSZXNwb25zZSIAMAFCMgocaW8uZ3JwYy5kZW1vLmV4Y2hh",
-            "bmdlX29fZ3JhbUISRXhjaGFuZ2VPR3JhbVByb3RvYgZwcm90bzM="));
+            "ChVleGNoYW5nZV9vX2dyYW0ucHJvdG8SD2V4Y2hhbmdlX29fZ3JhbSIYCgpX",
+            "YWxsUG9zdElkEgoKAmlkGAEgASgDInEKCFdhbGxQb3N0EicKAmlkGAEgASgL",
+            "MhsuZXhjaGFuZ2Vfb19ncmFtLldhbGxQb3N0SWQSEAoIdXNlcm5hbWUYAiAB",
+            "KAkSDwoHY2FwdGlvbhgDIAEoCRIZChF0aW1lc3RhbXBfY3JlYXRlZBgFIAEo",
+            "AyI8ChFQb3N0VG9XYWxsUmVxdWVzdBInCgRwb3N0GAEgASgLMhkuZXhjaGFu",
+            "Z2Vfb19ncmFtLldhbGxQb3N0Ij0KElBvc3RUb1dhbGxSZXNwb25zZRInCgJp",
+            "ZBgBIAEoCzIbLmV4Y2hhbmdlX29fZ3JhbS5XYWxsUG9zdElkIjYKE0dldFdh",
+            "bGxQb3N0c1JlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkSDQoFbGltaXQYAiAB",
+            "KAUiPwoUR2V0V2FsbFBvc3RzUmVzcG9uc2USJwoEcG9zdBgBIAEoCzIZLmV4",
+            "Y2hhbmdlX29fZ3JhbS5XYWxsUG9zdDLHAQoLV2FsbFNlcnZpY2USVwoKUG9z",
+            "dFRvV2FsbBIiLmV4Y2hhbmdlX29fZ3JhbS5Qb3N0VG9XYWxsUmVxdWVzdBoj",
+            "LmV4Y2hhbmdlX29fZ3JhbS5Qb3N0VG9XYWxsUmVzcG9uc2UiABJfCgxHZXRX",
+            "YWxsUG9zdHMSJC5leGNoYW5nZV9vX2dyYW0uR2V0V2FsbFBvc3RzUmVxdWVz",
+            "dBolLmV4Y2hhbmdlX29fZ3JhbS5HZXRXYWxsUG9zdHNSZXNwb25zZSIAMAFC",
+            "MgocaW8uZ3JwYy5kZW1vLmV4Y2hhbmdlX29fZ3JhbUISRXhjaGFuZ2VPR3Jh",
+            "bVByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.Image), global::ExchangeOGram.Image.Parser, new[]{ "Mimetype", "Data" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.WallPostId), global::ExchangeOGram.WallPostId.Parser, new[]{ "Id" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.MediaId), global::ExchangeOGram.MediaId.Parser, new[]{ "Id" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.WallPost), global::ExchangeOGram.WallPost.Parser, new[]{ "Id", "Username", "Caption", "MediaId", "TimestampCreated" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.UploadImageResponse), global::ExchangeOGram.UploadImageResponse.Parser, new[]{ "Id" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.UploadImageRequest), global::ExchangeOGram.UploadImageRequest.Parser, new[]{ "Image" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.DownloadImageRequest), global::ExchangeOGram.DownloadImageRequest.Parser, new[]{ "Id" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.DownloadImageResponse), global::ExchangeOGram.DownloadImageResponse.Parser, new[]{ "Image" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.WallPost), global::ExchangeOGram.WallPost.Parser, new[]{ "Id", "Username", "Caption", "TimestampCreated" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.PostToWallRequest), global::ExchangeOGram.PostToWallRequest.Parser, new[]{ "Post" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.PostToWallResponse), global::ExchangeOGram.PostToWallResponse.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeOGram.GetWallPostsRequest), global::ExchangeOGram.GetWallPostsRequest.Parser, new[]{ "Username", "Limit" }, null, null, null),
@@ -71,151 +53,6 @@ namespace ExchangeOGram {
 
   }
   #region Messages
-  public sealed partial class Image : pb::IMessage<Image> {
-    private static readonly pb::MessageParser<Image> _parser = new pb::MessageParser<Image>(() => new Image());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Image> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[0]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Image() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Image(Image other) : this() {
-      mimetype_ = other.mimetype_;
-      data_ = other.data_;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Image Clone() {
-      return new Image(this);
-    }
-
-    /// <summary>Field number for the "mimetype" field.</summary>
-    public const int MimetypeFieldNumber = 1;
-    private string mimetype_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Mimetype {
-      get { return mimetype_; }
-      set {
-        mimetype_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "data" field.</summary>
-    public const int DataFieldNumber = 2;
-    private pb::ByteString data_ = pb::ByteString.Empty;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString Data {
-      get { return data_; }
-      set {
-        data_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as Image);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Image other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Mimetype != other.Mimetype) return false;
-      if (Data != other.Data) return false;
-      return true;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Mimetype.Length != 0) hash ^= Mimetype.GetHashCode();
-      if (Data.Length != 0) hash ^= Data.GetHashCode();
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Mimetype.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Mimetype);
-      }
-      if (Data.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Data);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Mimetype.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Mimetype);
-      }
-      if (Data.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Data);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Image other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Mimetype.Length != 0) {
-        Mimetype = other.Mimetype;
-      }
-      if (other.Data.Length != 0) {
-        Data = other.Data;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            Mimetype = input.ReadString();
-            break;
-          }
-          case 18: {
-            Data = input.ReadBytes();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
   /// <summary>
   /// TODO: maybe use Int64Value wrapper type for this
   /// </summary>
@@ -226,7 +63,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[1]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -336,126 +173,6 @@ namespace ExchangeOGram {
 
   }
 
-  /// <summary>
-  /// TODO: maybe use Int64Value wrapper type for this
-  /// </summary>
-  public sealed partial class MediaId : pb::IMessage<MediaId> {
-    private static readonly pb::MessageParser<MediaId> _parser = new pb::MessageParser<MediaId>(() => new MediaId());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<MediaId> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[2]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public MediaId() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public MediaId(MediaId other) : this() {
-      id_ = other.id_;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public MediaId Clone() {
-      return new MediaId(this);
-    }
-
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 1;
-    private long id_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long Id {
-      get { return id_; }
-      set {
-        id_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as MediaId);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(MediaId other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Id != other.Id) return false;
-      return true;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Id != 0L) hash ^= Id.GetHashCode();
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Id != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(Id);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Id != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(MediaId other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Id != 0L) {
-        Id = other.Id;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 8: {
-            Id = input.ReadInt64();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
   public sealed partial class WallPost : pb::IMessage<WallPost> {
     private static readonly pb::MessageParser<WallPost> _parser = new pb::MessageParser<WallPost>(() => new WallPost());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -463,7 +180,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[3]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -483,7 +200,6 @@ namespace ExchangeOGram {
       Id = other.id_ != null ? other.Id.Clone() : null;
       username_ = other.username_;
       caption_ = other.caption_;
-      MediaId = other.mediaId_ != null ? other.MediaId.Clone() : null;
       timestampCreated_ = other.timestampCreated_;
     }
 
@@ -528,17 +244,6 @@ namespace ExchangeOGram {
       }
     }
 
-    /// <summary>Field number for the "media_id" field.</summary>
-    public const int MediaIdFieldNumber = 4;
-    private global::ExchangeOGram.MediaId mediaId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::ExchangeOGram.MediaId MediaId {
-      get { return mediaId_; }
-      set {
-        mediaId_ = value;
-      }
-    }
-
     /// <summary>Field number for the "timestamp_created" field.</summary>
     public const int TimestampCreatedFieldNumber = 5;
     private long timestampCreated_;
@@ -569,7 +274,6 @@ namespace ExchangeOGram {
       if (!object.Equals(Id, other.Id)) return false;
       if (Username != other.Username) return false;
       if (Caption != other.Caption) return false;
-      if (!object.Equals(MediaId, other.MediaId)) return false;
       if (TimestampCreated != other.TimestampCreated) return false;
       return true;
     }
@@ -580,7 +284,6 @@ namespace ExchangeOGram {
       if (id_ != null) hash ^= Id.GetHashCode();
       if (Username.Length != 0) hash ^= Username.GetHashCode();
       if (Caption.Length != 0) hash ^= Caption.GetHashCode();
-      if (mediaId_ != null) hash ^= MediaId.GetHashCode();
       if (TimestampCreated != 0L) hash ^= TimestampCreated.GetHashCode();
       return hash;
     }
@@ -604,10 +307,6 @@ namespace ExchangeOGram {
         output.WriteRawTag(26);
         output.WriteString(Caption);
       }
-      if (mediaId_ != null) {
-        output.WriteRawTag(34);
-        output.WriteMessage(MediaId);
-      }
       if (TimestampCreated != 0L) {
         output.WriteRawTag(40);
         output.WriteInt64(TimestampCreated);
@@ -625,9 +324,6 @@ namespace ExchangeOGram {
       }
       if (Caption.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Caption);
-      }
-      if (mediaId_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MediaId);
       }
       if (TimestampCreated != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(TimestampCreated);
@@ -651,12 +347,6 @@ namespace ExchangeOGram {
       }
       if (other.Caption.Length != 0) {
         Caption = other.Caption;
-      }
-      if (other.mediaId_ != null) {
-        if (mediaId_ == null) {
-          mediaId_ = new global::ExchangeOGram.MediaId();
-        }
-        MediaId.MergeFrom(other.MediaId);
       }
       if (other.TimestampCreated != 0L) {
         TimestampCreated = other.TimestampCreated;
@@ -686,507 +376,8 @@ namespace ExchangeOGram {
             Caption = input.ReadString();
             break;
           }
-          case 34: {
-            if (mediaId_ == null) {
-              mediaId_ = new global::ExchangeOGram.MediaId();
-            }
-            input.ReadMessage(mediaId_);
-            break;
-          }
           case 40: {
             TimestampCreated = input.ReadInt64();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class UploadImageResponse : pb::IMessage<UploadImageResponse> {
-    private static readonly pb::MessageParser<UploadImageResponse> _parser = new pb::MessageParser<UploadImageResponse>(() => new UploadImageResponse());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<UploadImageResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[4]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UploadImageResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UploadImageResponse(UploadImageResponse other) : this() {
-      Id = other.id_ != null ? other.Id.Clone() : null;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UploadImageResponse Clone() {
-      return new UploadImageResponse(this);
-    }
-
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 1;
-    private global::ExchangeOGram.MediaId id_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::ExchangeOGram.MediaId Id {
-      get { return id_; }
-      set {
-        id_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as UploadImageResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(UploadImageResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(Id, other.Id)) return false;
-      return true;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (id_ != null) hash ^= Id.GetHashCode();
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (id_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Id);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (id_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Id);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(UploadImageResponse other) {
-      if (other == null) {
-        return;
-      }
-      if (other.id_ != null) {
-        if (id_ == null) {
-          id_ = new global::ExchangeOGram.MediaId();
-        }
-        Id.MergeFrom(other.Id);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            if (id_ == null) {
-              id_ = new global::ExchangeOGram.MediaId();
-            }
-            input.ReadMessage(id_);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class UploadImageRequest : pb::IMessage<UploadImageRequest> {
-    private static readonly pb::MessageParser<UploadImageRequest> _parser = new pb::MessageParser<UploadImageRequest>(() => new UploadImageRequest());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<UploadImageRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[5]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UploadImageRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UploadImageRequest(UploadImageRequest other) : this() {
-      Image = other.image_ != null ? other.Image.Clone() : null;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UploadImageRequest Clone() {
-      return new UploadImageRequest(this);
-    }
-
-    /// <summary>Field number for the "image" field.</summary>
-    public const int ImageFieldNumber = 1;
-    private global::ExchangeOGram.Image image_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::ExchangeOGram.Image Image {
-      get { return image_; }
-      set {
-        image_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as UploadImageRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(UploadImageRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(Image, other.Image)) return false;
-      return true;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (image_ != null) hash ^= Image.GetHashCode();
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (image_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Image);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (image_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Image);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(UploadImageRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.image_ != null) {
-        if (image_ == null) {
-          image_ = new global::ExchangeOGram.Image();
-        }
-        Image.MergeFrom(other.Image);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            if (image_ == null) {
-              image_ = new global::ExchangeOGram.Image();
-            }
-            input.ReadMessage(image_);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class DownloadImageRequest : pb::IMessage<DownloadImageRequest> {
-    private static readonly pb::MessageParser<DownloadImageRequest> _parser = new pb::MessageParser<DownloadImageRequest>(() => new DownloadImageRequest());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<DownloadImageRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[6]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DownloadImageRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DownloadImageRequest(DownloadImageRequest other) : this() {
-      Id = other.id_ != null ? other.Id.Clone() : null;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DownloadImageRequest Clone() {
-      return new DownloadImageRequest(this);
-    }
-
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 1;
-    private global::ExchangeOGram.MediaId id_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::ExchangeOGram.MediaId Id {
-      get { return id_; }
-      set {
-        id_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as DownloadImageRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(DownloadImageRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(Id, other.Id)) return false;
-      return true;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (id_ != null) hash ^= Id.GetHashCode();
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (id_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Id);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (id_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Id);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(DownloadImageRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.id_ != null) {
-        if (id_ == null) {
-          id_ = new global::ExchangeOGram.MediaId();
-        }
-        Id.MergeFrom(other.Id);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            if (id_ == null) {
-              id_ = new global::ExchangeOGram.MediaId();
-            }
-            input.ReadMessage(id_);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class DownloadImageResponse : pb::IMessage<DownloadImageResponse> {
-    private static readonly pb::MessageParser<DownloadImageResponse> _parser = new pb::MessageParser<DownloadImageResponse>(() => new DownloadImageResponse());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<DownloadImageResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[7]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DownloadImageResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DownloadImageResponse(DownloadImageResponse other) : this() {
-      Image = other.image_ != null ? other.Image.Clone() : null;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DownloadImageResponse Clone() {
-      return new DownloadImageResponse(this);
-    }
-
-    /// <summary>Field number for the "image" field.</summary>
-    public const int ImageFieldNumber = 1;
-    private global::ExchangeOGram.Image image_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::ExchangeOGram.Image Image {
-      get { return image_; }
-      set {
-        image_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as DownloadImageResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(DownloadImageResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(Image, other.Image)) return false;
-      return true;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (image_ != null) hash ^= Image.GetHashCode();
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (image_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Image);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (image_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Image);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(DownloadImageResponse other) {
-      if (other == null) {
-        return;
-      }
-      if (other.image_ != null) {
-        if (image_ == null) {
-          image_ = new global::ExchangeOGram.Image();
-        }
-        Image.MergeFrom(other.Image);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            if (image_ == null) {
-              image_ = new global::ExchangeOGram.Image();
-            }
-            input.ReadMessage(image_);
             break;
           }
         }
@@ -1202,7 +393,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[8]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1325,7 +516,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[9]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1448,7 +639,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[10]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1599,7 +790,7 @@ namespace ExchangeOGram {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[11]; }
+      get { return global::ExchangeOGram.ExchangeOGramReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
