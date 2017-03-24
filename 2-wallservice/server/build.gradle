@@ -1,0 +1,68 @@
+group 'io.grpc'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'com.google.protobuf'
+apply plugin: 'application'
+apply plugin: 'idea'
+
+mainClassName = "io.grpc.demo.exchange_o_gram.ExchangeOGramServer"
+
+repositories {
+    maven { url uri("./libs/") }
+    maven { url "https://plugins.gradle.org/m2/" }
+}
+
+buildscript {
+    repositories {
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.1'
+    }
+}
+
+dependencies {
+    compile 'io.grpc:grpc-netty:1.2.0'
+    compile 'io.grpc:grpc-protobuf:1.2.0'
+    compile 'io.grpc:grpc-stub:1.2.0'
+    compile 'io.grpc:grpc-services:1.2.0'
+    compile 'io.netty:netty-tcnative-boringssl-static:1.1.33.Fork26'
+    // The gRPC version used by cloud spanner is not compatible with the
+    // latest gRPC version, because cloud spanner depends on an experimental
+    // gRPC API that changed. Will be fixed with the next cloud spanner
+    // release: https://github.com/GoogleCloudPlatform/google-cloud-java/issues/1691
+    compile 'com.google.cloud:google-cloud-spanner:0.10.0-beta-SNAPSHOT'
+    protobuf fileTree("../proto/")
+}
+
+protobuf {
+    protoc {
+        // The artifact spec for the Protobuf Compiler
+        artifact = 'com.google.protobuf:protoc:3.2.0'
+    }
+    plugins {
+        // Optional: an artifact spec for a protoc plugin, with "grpc" as
+        // the identifier, which can be referred to in the "plugins"
+        // container of the "generateProtoTasks" closure.
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.2.0'
+        }
+    }
+    generateProtoTasks {
+        ofSourceSet('main')*.plugins {
+            // Apply the "grpc" plugin whose spec is defined above, without
+            // options.  Note the braces cannot be omitted, otherwise the
+            // plugin will not be added. This is because of the implicit way
+            // NamedDomainObjectContainer binds the methods.
+            grpc { }
+        }
+    }
+}
+
+idea {
+    module {
+        sourceDirs += file("${projectDir}/build/generated/source/proto/main/java");
+        sourceDirs += file("${projectDir}/build/generated/source/proto/main/grpc");
+    }
+}

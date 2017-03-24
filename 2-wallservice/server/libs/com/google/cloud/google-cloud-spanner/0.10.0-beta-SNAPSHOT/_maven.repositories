@@ -1,0 +1,5 @@
+#NOTE: This is an internal implementation file, its format can be changed without prior notice.
+#Mon Mar 20 18:35:56 CET 2017
+google-cloud-spanner-0.10.0-beta-SNAPSHOT-tests.jar>=
+google-cloud-spanner-0.10.0-beta-SNAPSHOT.pom>=
+google-cloud-spanner-0.10.0-beta-SNAPSHOT.jar>=

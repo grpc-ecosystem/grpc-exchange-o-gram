@@ -11,6 +11,10 @@ message WallPostId {
     int64 id = 1;
 }
 
+message MediaId {
+    int64 id = 1;
+}
+
 message WallPost {
     WallPostId id = 1;
     string username = 2;  // username of the author
