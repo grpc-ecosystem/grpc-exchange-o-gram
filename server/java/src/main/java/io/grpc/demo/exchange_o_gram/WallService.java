@@ -22,6 +22,7 @@ import io.grpc.demo.exchange_o_gram.ExchangeOGramProto.WallPostId;
 import io.grpc.demo.exchange_o_gram.WallServiceGrpc.WallServiceImplBase;
 import io.grpc.stub.StreamObserver;
 import java.time.Instant;
+import java.util.function.Consumer;
 
 public class WallService extends WallServiceImplBase {
 
@@ -37,29 +38,9 @@ public class WallService extends WallServiceImplBase {
   @Override
   public void postToWall(PostToWallRequest request,
       StreamObserver<PostToWallResponse> responseObserver) {
-    // Store the wall post in Spanner.
     WallPost post = request.getPost();
-    long postId = newId();
-    Mutation.WriteBuilder wallPostBuilder = Mutation
-        .newInsertBuilder("wall_post")
-        .set("id")
-        .to(postId)
-        .set("username")
-        .to(post.getUsername())
-        .set("caption")
-        .to(post.getCaption())
-        .set("timestamp_created")
-        .to(Instant.now().getEpochSecond());
 
-    // The image is optional.
-    if (post.hasMediaId()) {
-        wallPostBuilder.set("media_id").to(post.getMediaId().getId());
-    }
-
-    Mutation wallPost = wallPostBuilder.build();
-
-    DatabaseClient dbClient = spanner.getDatabaseClient(databaseId);
-    dbClient.write(singletonList(wallPost));
+    long postId = storeInSpanner(post);
 
     // Respond to the gRPC client with the wall post identifier.
     WallPostId wallPostId = WallPostId.newBuilder().setId(postId).build();
@@ -71,15 +52,27 @@ public class WallService extends WallServiceImplBase {
   @Override
   public void getWallPosts(GetWallPostsRequest request,
       StreamObserver<GetWallPostsResponse> responseObserver) {
-    DatabaseClient dbClient = spanner.getDatabaseClient(databaseId);
 
     String username = request.getUsername();
+
+    loadFromSpanner(username, (WallPost wallPost) -> {
+      GetWallPostsResponse response = GetWallPostsResponse.newBuilder().setPost(wallPost).build();
+      // Stream each result immediately to the gRPC client as it is fetched from Spanner.
+      responseObserver.onNext(response);
+    });
+
+    responseObserver.onCompleted();
+  }
+
+  private void loadFromSpanner(String username, Consumer<WallPost> wallPostConsumer) {
+    DatabaseClient dbClient = spanner.getDatabaseClient(databaseId);
+
     // Fetch all posts made by username from Spanner.
     Statement stmt = Statement.newBuilder(
             "SELECT id, username, caption, media_id, timestamp_created "
-            + "FROM wall_post "
-            + "WHERE username = @username "
-            + "ORDER BY timestamp_created DESC")
+                    + "FROM wall_post "
+                    + "WHERE username = @username "
+                    + "ORDER BY timestamp_created DESC")
             .bind("username").to(username)
             .build();
 
@@ -102,12 +95,34 @@ public class WallService extends WallServiceImplBase {
         }
 
         WallPost wallPost = postBuilder.build();
-        GetWallPostsResponse response = GetWallPostsResponse.newBuilder().setPost(wallPost).build();
-        // Stream each result immediately to the gRPC client as it is fetched from Spanner.
-        responseObserver.onNext(response);
+        wallPostConsumer.accept(wallPost);
       }
-      responseObserver.onCompleted();
     }
+  }
+
+  private long storeInSpanner(WallPost post) {
+    long postId = newId();
+    Mutation.WriteBuilder wallPostBuilder = Mutation
+            .newInsertBuilder("wall_post")
+            .set("id")
+            .to(postId)
+            .set("username")
+            .to(post.getUsername())
+            .set("caption")
+            .to(post.getCaption())
+            .set("timestamp_created")
+            .to(Instant.now().getEpochSecond());
+
+    // The image is optional.
+    if (post.hasMediaId()) {
+      wallPostBuilder.set("media_id").to(post.getMediaId().getId());
+    }
+
+    Mutation wallPost = wallPostBuilder.build();
+
+    DatabaseClient dbClient = spanner.getDatabaseClient(databaseId);
+    dbClient.write(singletonList(wallPost));
+    return postId;
   }
 }
 

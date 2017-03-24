@@ -23,7 +23,6 @@ import io.grpc.demo.exchange_o_gram.MediaServiceGrpc.MediaServiceImplBase;
 import io.grpc.stub.StreamObserver;
 import java.io.IOException;
 import java.util.NoSuchElementException;
-import java.util.UUID;
 
 public class MediaService extends MediaServiceImplBase {
 
@@ -43,20 +42,7 @@ public class MediaService extends MediaServiceImplBase {
     // The image to be uploaded.
     Image image = request.getImage();
 
-    long id = newId();
-    Mutation newImage = Mutation
-        .newInsertBuilder("media")
-        .set("id")
-        .to(id)
-        .set("data")
-        .to(toByteArray(image.getData()))
-        .set("mimetype")
-        .to(image.getMimetype())
-        .build();
-
-    // Store the image in Spanner.
-    DatabaseClient dbClient = spanner.getDatabaseClient(databaseId);
-    dbClient.write(singletonList(newImage));
+    long id = storeInSpanner(image);
 
     // Send a response to the gRPC client.
     MediaId mediaId = MediaId.newBuilder().setId(id).build();
@@ -69,9 +55,17 @@ public class MediaService extends MediaServiceImplBase {
   public void downloadImage(DownloadImageRequest request,
       StreamObserver<DownloadImageResponse> responseObserver) {
 
+    Image image = loadFromSpanner(request.getId().getId());
+
+    DownloadImageResponse response = DownloadImageResponse.newBuilder().setImage(image).build();
+    responseObserver.onNext(response);
+    responseObserver.onCompleted();
+  }
+
+  private Image loadFromSpanner(long id) {
     // Fetch the image from Spanner.
     DatabaseClient dbClient = spanner.getDatabaseClient(databaseId);
-    Key mediaId = Key.of(request.getId().getId());
+    Key mediaId = Key.of(id);
     Struct row = dbClient.singleUse().readRow("media", mediaId, asList("id", "data", "mimetype"));
 
     if (row == null) {
@@ -83,14 +77,28 @@ public class MediaService extends MediaServiceImplBase {
       ByteString data = ByteString.readFrom(row.getBytes("data").asInputStream());
       String filetype = row.getString("mimetype");
       Image image = Image.newBuilder().setData(data).setMimetype(filetype).build();
-
-      DownloadImageResponse response = DownloadImageResponse.newBuilder().setImage(image).build();
-
-      responseObserver.onNext(response);
-      responseObserver.onCompleted();
+      return image;
     } catch (IOException e) {
-      responseObserver.onError(e);
+      throw new RuntimeException(e);
     }
+  }
+
+  private long storeInSpanner(Image image) {
+    long id = newId();
+    Mutation newImage = Mutation
+            .newInsertBuilder("media")
+            .set("id")
+            .to(id)
+            .set("data")
+            .to(toByteArray(image.getData()))
+            .set("mimetype")
+            .to(image.getMimetype())
+            .build();
+
+    DatabaseClient dbClient = spanner.getDatabaseClient(databaseId);
+    dbClient.write(singletonList(newImage));
+
+    return id;
   }
 
   private static ByteArray toByteArray(ByteString bs) {

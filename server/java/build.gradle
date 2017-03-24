@@ -3,7 +3,7 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'com.google.protobuf'
-apply plugin:'application'
+apply plugin: 'application'
 apply plugin: 'idea'
 
 mainClassName = "io.grpc.demo.exchange_o_gram.ExchangeOGramServer"
