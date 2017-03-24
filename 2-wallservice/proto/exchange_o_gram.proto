@@ -6,20 +6,15 @@ package exchange_o_gram;
 option java_package = "io.grpc.demo.exchange_o_gram";
 option java_outer_classname = "ExchangeOGramProto";
 
-// TODO: maybe use Int64Value wrapper type for this
 message WallPostId {
-    int64 id = 1;
-}
-
-message MediaId {
-    int64 id = 1;
+    int64 value = 1;
 }
 
 message WallPost {
     WallPostId id = 1;
     string username = 2;  // username of the author
     string caption = 3;
-    int64 timestamp_created = 5;  // UTC seconds since epoch
+    int64 timestamp_created = 4;  // UTC seconds since epoch
 }
 
 message PostToWallRequest {
@@ -32,8 +27,6 @@ message PostToWallResponse {
 
 message GetWallPostsRequest {
     string username = 1;  // requests post authored by this user.
-    // Remove before demo, so we can show extensibility
-    int32 limit = 2;
 }
 
 message GetWallPostsResponse {

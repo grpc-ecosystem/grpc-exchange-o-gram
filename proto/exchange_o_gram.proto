@@ -11,22 +11,20 @@ message Image {
     bytes data = 2;
 }
 
-// TODO: maybe use Int64Value wrapper type for this
 message WallPostId {
-    int64 id = 1;
+    int64 value = 1;
 }
 
-// TODO: maybe use Int64Value wrapper type for this
 message MediaId {
-    int64 id = 1;
+    int64 value = 1;
 }
 
 message WallPost {
     WallPostId id = 1;
     string username = 2;  // username of the author
     string caption = 3;
-    MediaId media_id = 4;
-    int64 timestamp_created = 5;  // UTC seconds since epoch
+    int64 timestamp_created = 4;  // UTC seconds since epoch
+    MediaId media_id = 5;
 }
 
 message UploadImageResponse {
@@ -55,8 +53,6 @@ message PostToWallResponse {
 
 message GetWallPostsRequest {
     string username = 1;  // requests post authored by this user.
-    // Remove before demo, so we can show extensibility
-    int32 limit = 2;
 }
 
 message GetWallPostsResponse {
