@@ -13,7 +13,7 @@
                 <h4>@post.Caption</h4>
                 @if (post.MediaId != null)
                 {
-                    <img style="max-height: 500px; max-width: 500px" src="/Media/GetById/@post.MediaId.Id"/>
+                    <img style="max-height: 500px; max-width: 500px" src="/Media/GetById/@post.MediaId.Value"/>
                 }
                 <p>by @("@")@post.Username</p>
             </div>
