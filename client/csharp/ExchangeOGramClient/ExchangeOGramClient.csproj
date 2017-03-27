@@ -28,6 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\proto\exchange_o_gram.proto" Link="exchange_o_gram.proto" />
+    <None Include="..\generate_proto_csharp.bat" Link="generate_proto_csharp.bat" />
   </ItemGroup>
 
 </Project>
