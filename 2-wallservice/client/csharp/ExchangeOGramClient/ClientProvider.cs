@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Reflection;
-using System.Threading.Tasks;
 using Grpc.Core;
-using ExchangeOGram;
 
 namespace ExchangeOGram
 {
@@ -18,7 +13,6 @@ namespace ExchangeOGram
 
         public ClientProvider()
         {
-            // TODO: close the channel somewhere
             this.channel = new Channel("demo-linux1:8433", GetSslCredentials());
             this.wallClient = new WallService.WallServiceClient(channel);
         }
@@ -26,12 +20,6 @@ namespace ExchangeOGram
         public WallService.WallServiceClient WallClient
         {
             get => wallClient;
-        }
-
-        // TODO: move elsewhere
-        public string Username
-        {
-            get => "testuser";
         }
 
         private SslCredentials GetSslCredentials()

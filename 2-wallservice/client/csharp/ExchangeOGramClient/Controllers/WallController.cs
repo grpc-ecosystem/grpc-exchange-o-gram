@@ -27,7 +27,7 @@ namespace ExchangeOGram.Controllers
 
             var call = client.GetWallPosts(new ExchangeOGram.GetWallPostsRequest
             {
-                Username = clientProvider.Username
+                Username = Constants.DemoUsername
             });
 
             // read all posts
@@ -55,7 +55,7 @@ namespace ExchangeOGram.Controllers
                 {
                     Post = new WallPost
                     {
-                        Username = clientProvider.Username,
+                        Username = Constants.DemoUsername,
                         Caption = form.Caption
                      }
                 });

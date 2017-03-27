@@ -26,5 +26,8 @@
   <ItemGroup>
     <EmbeddedResource Include="ca.pem" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\proto\exchange_o_gram.proto" Link="exchange_o_gram.proto" />
+  </ItemGroup>
 
 </Project>
