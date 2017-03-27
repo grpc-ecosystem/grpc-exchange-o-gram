@@ -43,7 +43,7 @@ public class WallService extends WallServiceImplBase {
     long postId = storeInSpanner(post);
 
     // Respond to the gRPC client with the wall post identifier.
-    WallPostId wallPostId = WallPostId.newBuilder().setId(postId).build();
+    WallPostId wallPostId = WallPostId.newBuilder().setValue(postId).build();
     PostToWallResponse response = PostToWallResponse.newBuilder().setId(wallPostId).build();
     responseObserver.onNext(response);
     responseObserver.onCompleted();
@@ -83,14 +83,14 @@ public class WallService extends WallServiceImplBase {
         String caption = resultSet.getString("caption");
         long timestamp = resultSet.getLong("timestamp_created");
 
-        postBuilder.setId(WallPostId.newBuilder().setId(id).build());
+        postBuilder.setId(WallPostId.newBuilder().setValue(id).build());
         postBuilder.setUsername(username);
         postBuilder.setCaption(caption);
         postBuilder.setTimestampCreated(timestamp);
 
         // The media is optional.
         if (!resultSet.isNull("media_id")) {
-          MediaId mediaId = MediaId.newBuilder().setId(resultSet.getLong("media_id")).build();
+          MediaId mediaId = MediaId.newBuilder().setValue(resultSet.getLong("media_id")).build();
           postBuilder.setMediaId(mediaId);
         }
 
@@ -115,7 +115,7 @@ public class WallService extends WallServiceImplBase {
 
     // The image is optional.
     if (post.hasMediaId()) {
-      wallPostBuilder.set("media_id").to(post.getMediaId().getId());
+      wallPostBuilder.set("media_id").to(post.getMediaId().getValue());
     }
 
     Mutation wallPost = wallPostBuilder.build();

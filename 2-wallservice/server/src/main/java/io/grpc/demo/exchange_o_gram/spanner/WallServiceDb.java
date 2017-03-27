@@ -16,7 +16,6 @@ import com.google.cloud.spanner.SpannerOptions;
 import com.google.cloud.spanner.Statement;
 import io.grpc.demo.exchange_o_gram.ExchangeOGramProto.GetWallPostsRequest;
 import io.grpc.demo.exchange_o_gram.ExchangeOGramProto.GetWallPostsResponse;
-import io.grpc.demo.exchange_o_gram.ExchangeOGramProto.MediaId;
 import io.grpc.demo.exchange_o_gram.ExchangeOGramProto.PostToWallRequest;
 import io.grpc.demo.exchange_o_gram.ExchangeOGramProto.PostToWallResponse;
 import io.grpc.demo.exchange_o_gram.ExchangeOGramProto.WallPost;
@@ -62,7 +61,7 @@ public class WallServiceDb {
                 String caption = resultSet.getString("caption");
                 long timestamp = resultSet.getLong("timestamp_created");
 
-                postBuilder.setId(ExchangeOGramProto.WallPostId.newBuilder().setId(id).build());
+                postBuilder.setId(ExchangeOGramProto.WallPostId.newBuilder().setValue(id).build());
                 postBuilder.setUsername(username);
                 postBuilder.setCaption(caption);
                 postBuilder.setTimestampCreated(timestamp);
