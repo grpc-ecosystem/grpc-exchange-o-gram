@@ -45,7 +45,7 @@ public class MediaService extends MediaServiceImplBase {
     long id = storeInSpanner(image);
 
     // Send a response to the gRPC client.
-    MediaId mediaId = MediaId.newBuilder().setId(id).build();
+    MediaId mediaId = MediaId.newBuilder().setValue(id).build();
     UploadImageResponse response = UploadImageResponse.newBuilder().setId(mediaId).build();
     responseObserver.onNext(response);
     responseObserver.onCompleted();
@@ -55,7 +55,7 @@ public class MediaService extends MediaServiceImplBase {
   public void downloadImage(DownloadImageRequest request,
       StreamObserver<DownloadImageResponse> responseObserver) {
 
-    Image image = loadFromSpanner(request.getId().getId());
+    Image image = loadFromSpanner(request.getId().getValue());
 
     DownloadImageResponse response = DownloadImageResponse.newBuilder().setImage(image).build();
     responseObserver.onNext(response);

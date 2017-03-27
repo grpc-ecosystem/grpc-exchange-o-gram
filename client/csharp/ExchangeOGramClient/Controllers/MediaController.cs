@@ -18,7 +18,7 @@ namespace ExchangeOGram.Controllers
 
             var response = await client.DownloadImageAsync(new DownloadImageRequest
             {
-                 Id = new MediaId { Id = id.Value }
+                 Id = new MediaId { Value = id.Value }
             });
 
             var imageData = response.Image.Data.ToByteArray();
