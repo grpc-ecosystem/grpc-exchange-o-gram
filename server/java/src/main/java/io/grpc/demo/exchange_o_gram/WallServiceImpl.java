@@ -11,7 +11,7 @@ import io.grpc.demo.exchange_o_gram.WallServiceGrpc.WallServiceImplBase;
 import io.grpc.demo.exchange_o_gram.spanner.WallServiceDb;
 import io.grpc.stub.StreamObserver;
 
-public class WallService extends WallServiceImplBase {
+public class WallServiceImpl extends WallServiceImplBase {
 
   private final WallServiceDb db = new WallServiceDb();
 

@@ -10,7 +10,7 @@ import io.grpc.demo.exchange_o_gram.MediaServiceGrpc.MediaServiceImplBase;
 import io.grpc.demo.exchange_o_gram.spanner.MediaServiceDb;
 import io.grpc.stub.StreamObserver;
 
-public class MediaService extends MediaServiceImplBase {
+public class MediaServiceImpl extends MediaServiceImplBase {
 
   private final MediaServiceDb db = new MediaServiceDb();
 

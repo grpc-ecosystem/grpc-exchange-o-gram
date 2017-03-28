@@ -13,8 +13,8 @@ public class ExchangeOGramServer {
   public static void main(String... args) throws Exception {
     Server server =
         ServerBuilder.forPort(SERVER_PORT)
-        .addService(new WallService())
-        .addService(new MediaService())
+        .addService(new WallServiceImpl())
+        .addService(new MediaServiceImpl())
         // Use TLS
         .useTransportSecurity(TLS_CERT_FILE, TLS_CERT_KEY)
         // Use Reflection
