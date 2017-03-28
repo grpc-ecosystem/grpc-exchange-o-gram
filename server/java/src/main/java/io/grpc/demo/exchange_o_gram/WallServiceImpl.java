@@ -16,6 +16,20 @@ public class WallServiceImpl extends WallServiceImplBase {
   private final WallServiceDb db = new WallServiceDb();
 
   @Override
+  public void getWallPosts(GetWallPostsRequest request,
+                           StreamObserver<GetWallPostsResponse> responseObserver) {
+
+    String username = request.getUsername();
+
+    for(WallPost wallPost : db.loadPosts(username)) {
+      GetWallPostsResponse response = GetWallPostsResponse.newBuilder().setPost(wallPost).build();
+      responseObserver.onNext(response);
+    }
+
+    responseObserver.onCompleted();
+  }
+
+  @Override
   public void postToWall(PostToWallRequest request,
       StreamObserver<PostToWallResponse> responseObserver) {
     WallPost post = request.getPost();
@@ -27,21 +41,6 @@ public class WallServiceImpl extends WallServiceImplBase {
     PostToWallResponse response = PostToWallResponse.newBuilder().setId(wallPostId).build();
 
     responseObserver.onNext(response);
-    responseObserver.onCompleted();
-  }
-
-  @Override
-  public void getWallPosts(GetWallPostsRequest request,
-      StreamObserver<GetWallPostsResponse> responseObserver) {
-
-    String username = request.getUsername();
-
-    db.loadPosts(username, (WallPost wallPost) -> {
-      GetWallPostsResponse response = GetWallPostsResponse.newBuilder().setPost(wallPost).build();
-      // Stream each result immediately to the gRPC client as it is fetched from Spanner.
-      responseObserver.onNext(response);
-    });
-
     responseObserver.onCompleted();
   }
 }

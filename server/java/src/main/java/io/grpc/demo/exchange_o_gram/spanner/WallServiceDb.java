@@ -4,7 +4,8 @@ import com.google.cloud.spanner.*;
 import io.grpc.demo.exchange_o_gram.ExchangeOGramProto;
 
 import java.time.Instant;
-import java.util.function.Consumer;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import static io.grpc.demo.exchange_o_gram.Utils.DATABASE_ID;
 import static io.grpc.demo.exchange_o_gram.Utils.INSTANCE_ID;
@@ -21,20 +22,32 @@ public class WallServiceDb {
         this.databaseId = DatabaseId.of(options.getProjectId(), INSTANCE_ID, DATABASE_ID);
     }
 
-    public void loadPosts(String username, Consumer<ExchangeOGramProto.WallPost> wallPostConsumer) {
-        DatabaseClient dbClient = spanner.getDatabaseClient(databaseId);
+    public Iterable<ExchangeOGramProto.WallPost> loadPosts(String username) {
+        class LoadPostsIter implements Iterator<ExchangeOGramProto.WallPost> {
 
-        // Fetch all posts made by username from Spanner.
-        Statement stmt = Statement.newBuilder(
-                "SELECT id, username, caption, media_id, timestamp_created "
-                        + "FROM wall_post "
-                        + "WHERE username = @username "
-                        + "ORDER BY timestamp_created DESC")
-                .bind("username").to(username)
-                .build();
+            private boolean shouldFetchNext;
+            private ExchangeOGramProto.WallPost next;
 
-        try(ResultSet resultSet = dbClient.singleUse().executeQuery(stmt)) {
-            while (resultSet.next()) {
+            private ResultSet resultSet;
+
+            private LoadPostsIter() {
+                DatabaseClient dbClient = spanner.getDatabaseClient(databaseId);
+                Statement stmt = Statement.newBuilder(
+                        "SELECT id, username, caption, media_id, timestamp_created "
+                                + "FROM wall_post "
+                                + "WHERE username = @username "
+                                + "ORDER BY timestamp_created DESC")
+                        .bind("username").to(username)
+                        .build();
+                resultSet = dbClient.singleUse().executeQuery(stmt);
+                shouldFetchNext = true;
+            }
+
+            private ExchangeOGramProto.WallPost fetchNext() {
+                if (!resultSet.next()) {
+                    return null;
+                }
+
                 ExchangeOGramProto.WallPost.Builder postBuilder = ExchangeOGramProto.WallPost.newBuilder();
                 long id = resultSet.getLong("id");
                 String caption = resultSet.getString("caption");
@@ -47,14 +60,38 @@ public class WallServiceDb {
 
                 // The media is optional.
                 if (!resultSet.isNull("media_id")) {
-                    ExchangeOGramProto.MediaId mediaId = ExchangeOGramProto.MediaId.newBuilder().setValue(resultSet.getLong("media_id")).build();
+                    ExchangeOGramProto.MediaId mediaId =
+                            ExchangeOGramProto.MediaId.newBuilder().setValue(resultSet.getLong("media_id")).build();
                     postBuilder.setMediaId(mediaId);
                 }
 
-                ExchangeOGramProto.WallPost wallPost = postBuilder.build();
-                wallPostConsumer.accept(wallPost);
+                return postBuilder.build();
+            }
+
+            @Override
+            public boolean hasNext() {
+                if (shouldFetchNext) {
+                    next = fetchNext();
+                }
+
+                shouldFetchNext = false;
+
+                return next != null;
+            }
+
+            @Override
+            public ExchangeOGramProto.WallPost next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException("No more wall posts");
+                }
+
+                shouldFetchNext = true;
+
+                return next;
             }
         }
+
+        return () -> new LoadPostsIter();
     }
 
     public long storePost(ExchangeOGramProto.WallPost post) {
