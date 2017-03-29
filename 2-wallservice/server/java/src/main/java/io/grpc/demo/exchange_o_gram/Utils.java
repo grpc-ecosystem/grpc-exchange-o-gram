@@ -1,4 +1,4 @@
-package io.grpc.demo.exchange_o_gram.spanner;
+package io.grpc.demo.exchange_o_gram;
 
 import java.io.File;
 import java.util.UUID;

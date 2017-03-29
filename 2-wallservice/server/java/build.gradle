@@ -33,7 +33,7 @@ dependencies {
     // gRPC API that changed. Will be fixed with the next cloud spanner
     // release: https://github.com/GoogleCloudPlatform/google-cloud-java/issues/1691
     compile 'com.google.cloud:google-cloud-spanner:0.10.0-beta-SNAPSHOT'
-    protobuf fileTree("../proto/")
+    protobuf fileTree("../../proto/")
 }
 
 protobuf {
