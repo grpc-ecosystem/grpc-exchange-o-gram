@@ -16,8 +16,6 @@ public class ExchangeOGramServer {
         .addService(new WallServiceImpl())
         // Use TLS
         .useTransportSecurity(TLS_CERT_FILE, TLS_CERT_KEY)
-        // Use Reflection
-        .addService(ProtoReflectionService.newInstance())
         .build();
 
     server.start();
