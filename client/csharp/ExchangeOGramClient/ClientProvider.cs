@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using Grpc.Core;
+using System.Collections.Generic;
 
 namespace ExchangeOGram
 {
@@ -17,7 +18,11 @@ namespace ExchangeOGram
 
         public ClientProvider()
         {
-            this.channel = new Channel(GetBackendHost(), BackendPort, GetSslCredentials());
+            var options = new List<ChannelOption>
+            {
+                new ChannelOption(ChannelOptions.SslTargetNameOverride, "demo-linux1")
+            };
+            this.channel = new Channel("104.154.171.207:8433", BackendPort, GetSslCredentials(), options);
             this.wallClient = new WallService.WallServiceClient(channel);
             this.mediaClient = new MediaService.MediaServiceClient(channel);
         }
