@@ -9,8 +9,7 @@ namespace ExchangeOGram
     public class ClientProvider
     {
         const string CaPemResourceName = "ExchangeOGramClient.ca.pem";
-        const string BackendHostEnvName = "EXCHANGEOGRAM_BACKEND_HOST";
-        const int BackendPort = 8433;
+        const string BackendEnvName = "EXCHANGEOGRAM_BACKEND";
 
         Channel channel;
         WallService.WallServiceClient wallClient;
@@ -22,7 +21,7 @@ namespace ExchangeOGram
             {
                 new ChannelOption(ChannelOptions.SslTargetNameOverride, "demo-linux1")
             };
-            this.channel = new Channel("104.154.171.207:8433", GetSslCredentials(), options);
+            this.channel = new Channel(GetBackend(), GetSslCredentials(), options);
             this.wallClient = new WallService.WallServiceClient(channel);
             this.mediaClient = new MediaService.MediaServiceClient(channel);
         }
@@ -32,7 +31,8 @@ namespace ExchangeOGram
             get => wallClient;
         }
 
-        public MediaService.MediaServiceClient MediaClient {
+        public MediaService.MediaServiceClient MediaClient
+        {
             get => mediaClient;
         }
 
@@ -46,14 +46,14 @@ namespace ExchangeOGram
             }
         }
 
-        private string GetBackendHost()
+        private string GetBackend()
         {
-           var backendHost = Environment.GetEnvironmentVariable(BackendHostEnvName);
-           if (!string.IsNullOrEmpty(backendHost))
+           var backend = Environment.GetEnvironmentVariable(BackendEnvName);
+           if (!string.IsNullOrEmpty(backend))
            {
-               return backendHost;
+               return backend;
            }
-           return "localhost";
+           return "localhost:8433";
         }
     }
 }
