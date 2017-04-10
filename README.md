@@ -2,10 +2,12 @@
 gRPC Demo: Hands on building and debugging services
 ===================================
 
+*Note: This demo is work-in-progress. Things might not work 100% and the READMEs need more work*
+
 This demo will show you how to:
 - Design an API for a service using protocol buffers (a simple photo sharing app) 
 - Build gRPC service & client (server in Java, client in C#)
-- Use the `grpc_cli` command line tool to explore services running on a server and invoke RPCs manually
+- TODO: Use the `grpc_cli` command line tool to explore services running on a server and invoke RPCs manually
 - Extend the server with a new functionality (while maintaining backward compatibility)
 - TODO: Run the gRPC service on Kubernetes
 
