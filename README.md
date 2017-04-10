@@ -9,15 +9,15 @@ This demo will show you how to:
 - Extend the server with a new functionality (while maintaining backward compatibility)
 - TODO: Run the gRPC service on Kubernetes
 
-# Exchange-O-Gram
+## Exchange-O-Gram
 
 We will be building a simple social application that allows posting text and photo on your personal wall.
 
-TODO: add component diagram
+![Diagram](exchangeogram-diagram.png)
 
 TODO: explain the service more
 
-# Structure of this repository
+## Structure of this repository
 
 This demo is split into several steps:
 - `1-wallservice` Initial version of the Exchange-O-Gram app.
@@ -25,11 +25,11 @@ This demo is split into several steps:
 
 The recommended way to try this demo is to work through the steps in order.
 
-# Prework 
+## Prework 
 
 ### Create Google Cloud Project
 
-
+TODO
 
 ### Authenticate with Google Cloud
 
