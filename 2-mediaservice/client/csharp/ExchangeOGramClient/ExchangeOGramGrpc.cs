@@ -7,27 +7,27 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Grpc.Core;
+using grpc = global::Grpc.Core;
 
 namespace ExchangeOGram {
   public static partial class MediaService
   {
     static readonly string __ServiceName = "exchange_o_gram.MediaService";
 
-    static readonly Marshaller<global::ExchangeOGram.UploadImageRequest> __Marshaller_UploadImageRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.UploadImageRequest.Parser.ParseFrom);
-    static readonly Marshaller<global::ExchangeOGram.UploadImageResponse> __Marshaller_UploadImageResponse = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.UploadImageResponse.Parser.ParseFrom);
-    static readonly Marshaller<global::ExchangeOGram.DownloadImageRequest> __Marshaller_DownloadImageRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.DownloadImageRequest.Parser.ParseFrom);
-    static readonly Marshaller<global::ExchangeOGram.DownloadImageResponse> __Marshaller_DownloadImageResponse = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.DownloadImageResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ExchangeOGram.UploadImageRequest> __Marshaller_UploadImageRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.UploadImageRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ExchangeOGram.UploadImageResponse> __Marshaller_UploadImageResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.UploadImageResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ExchangeOGram.DownloadImageRequest> __Marshaller_DownloadImageRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.DownloadImageRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ExchangeOGram.DownloadImageResponse> __Marshaller_DownloadImageResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.DownloadImageResponse.Parser.ParseFrom);
 
-    static readonly Method<global::ExchangeOGram.UploadImageRequest, global::ExchangeOGram.UploadImageResponse> __Method_UploadImage = new Method<global::ExchangeOGram.UploadImageRequest, global::ExchangeOGram.UploadImageResponse>(
-        MethodType.Unary,
+    static readonly grpc::Method<global::ExchangeOGram.UploadImageRequest, global::ExchangeOGram.UploadImageResponse> __Method_UploadImage = new grpc::Method<global::ExchangeOGram.UploadImageRequest, global::ExchangeOGram.UploadImageResponse>(
+        grpc::MethodType.Unary,
         __ServiceName,
         "UploadImage",
         __Marshaller_UploadImageRequest,
         __Marshaller_UploadImageResponse);
 
-    static readonly Method<global::ExchangeOGram.DownloadImageRequest, global::ExchangeOGram.DownloadImageResponse> __Method_DownloadImage = new Method<global::ExchangeOGram.DownloadImageRequest, global::ExchangeOGram.DownloadImageResponse>(
-        MethodType.Unary,
+    static readonly grpc::Method<global::ExchangeOGram.DownloadImageRequest, global::ExchangeOGram.DownloadImageResponse> __Method_DownloadImage = new grpc::Method<global::ExchangeOGram.DownloadImageRequest, global::ExchangeOGram.DownloadImageResponse>(
+        grpc::MethodType.Unary,
         __ServiceName,
         "DownloadImage",
         __Marshaller_DownloadImageRequest,
@@ -42,29 +42,29 @@ namespace ExchangeOGram {
     /// <summary>Base class for server-side implementations of MediaService</summary>
     public abstract partial class MediaServiceBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::ExchangeOGram.UploadImageResponse> UploadImage(global::ExchangeOGram.UploadImageRequest request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::ExchangeOGram.UploadImageResponse> UploadImage(global::ExchangeOGram.UploadImageRequest request, grpc::ServerCallContext context)
       {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::ExchangeOGram.DownloadImageResponse> DownloadImage(global::ExchangeOGram.DownloadImageRequest request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::ExchangeOGram.DownloadImageResponse> DownloadImage(global::ExchangeOGram.DownloadImageRequest request, grpc::ServerCallContext context)
       {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
     }
 
     /// <summary>Client for MediaService</summary>
-    public partial class MediaServiceClient : ClientBase<MediaServiceClient>
+    public partial class MediaServiceClient : grpc::ClientBase<MediaServiceClient>
     {
       /// <summary>Creates a new client for MediaService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public MediaServiceClient(Channel channel) : base(channel)
+      public MediaServiceClient(grpc::Channel channel) : base(channel)
       {
       }
       /// <summary>Creates a new client for MediaService that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
-      public MediaServiceClient(CallInvoker callInvoker) : base(callInvoker)
+      public MediaServiceClient(grpc::CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
@@ -77,35 +77,35 @@ namespace ExchangeOGram {
       {
       }
 
-      public virtual global::ExchangeOGram.UploadImageResponse UploadImage(global::ExchangeOGram.UploadImageRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::ExchangeOGram.UploadImageResponse UploadImage(global::ExchangeOGram.UploadImageRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return UploadImage(request, new CallOptions(headers, deadline, cancellationToken));
+        return UploadImage(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::ExchangeOGram.UploadImageResponse UploadImage(global::ExchangeOGram.UploadImageRequest request, CallOptions options)
+      public virtual global::ExchangeOGram.UploadImageResponse UploadImage(global::ExchangeOGram.UploadImageRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_UploadImage, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::ExchangeOGram.UploadImageResponse> UploadImageAsync(global::ExchangeOGram.UploadImageRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::ExchangeOGram.UploadImageResponse> UploadImageAsync(global::ExchangeOGram.UploadImageRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return UploadImageAsync(request, new CallOptions(headers, deadline, cancellationToken));
+        return UploadImageAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::ExchangeOGram.UploadImageResponse> UploadImageAsync(global::ExchangeOGram.UploadImageRequest request, CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::ExchangeOGram.UploadImageResponse> UploadImageAsync(global::ExchangeOGram.UploadImageRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_UploadImage, null, options, request);
       }
-      public virtual global::ExchangeOGram.DownloadImageResponse DownloadImage(global::ExchangeOGram.DownloadImageRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::ExchangeOGram.DownloadImageResponse DownloadImage(global::ExchangeOGram.DownloadImageRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return DownloadImage(request, new CallOptions(headers, deadline, cancellationToken));
+        return DownloadImage(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::ExchangeOGram.DownloadImageResponse DownloadImage(global::ExchangeOGram.DownloadImageRequest request, CallOptions options)
+      public virtual global::ExchangeOGram.DownloadImageResponse DownloadImage(global::ExchangeOGram.DownloadImageRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_DownloadImage, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::ExchangeOGram.DownloadImageResponse> DownloadImageAsync(global::ExchangeOGram.DownloadImageRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::ExchangeOGram.DownloadImageResponse> DownloadImageAsync(global::ExchangeOGram.DownloadImageRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return DownloadImageAsync(request, new CallOptions(headers, deadline, cancellationToken));
+        return DownloadImageAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::ExchangeOGram.DownloadImageResponse> DownloadImageAsync(global::ExchangeOGram.DownloadImageRequest request, CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::ExchangeOGram.DownloadImageResponse> DownloadImageAsync(global::ExchangeOGram.DownloadImageRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_DownloadImage, null, options, request);
       }
@@ -118,9 +118,9 @@ namespace ExchangeOGram {
 
     /// <summary>Creates service definition that can be registered with a server</summary>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    public static ServerServiceDefinition BindService(MediaServiceBase serviceImpl)
+    public static grpc::ServerServiceDefinition BindService(MediaServiceBase serviceImpl)
     {
-      return ServerServiceDefinition.CreateBuilder()
+      return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_UploadImage, serviceImpl.UploadImage)
           .AddMethod(__Method_DownloadImage, serviceImpl.DownloadImage).Build();
     }
@@ -130,20 +130,20 @@ namespace ExchangeOGram {
   {
     static readonly string __ServiceName = "exchange_o_gram.WallService";
 
-    static readonly Marshaller<global::ExchangeOGram.PostToWallRequest> __Marshaller_PostToWallRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.PostToWallRequest.Parser.ParseFrom);
-    static readonly Marshaller<global::ExchangeOGram.PostToWallResponse> __Marshaller_PostToWallResponse = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.PostToWallResponse.Parser.ParseFrom);
-    static readonly Marshaller<global::ExchangeOGram.GetWallPostsRequest> __Marshaller_GetWallPostsRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.GetWallPostsRequest.Parser.ParseFrom);
-    static readonly Marshaller<global::ExchangeOGram.GetWallPostsResponse> __Marshaller_GetWallPostsResponse = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.GetWallPostsResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ExchangeOGram.PostToWallRequest> __Marshaller_PostToWallRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.PostToWallRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ExchangeOGram.PostToWallResponse> __Marshaller_PostToWallResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.PostToWallResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ExchangeOGram.GetWallPostsRequest> __Marshaller_GetWallPostsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.GetWallPostsRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ExchangeOGram.GetWallPostsResponse> __Marshaller_GetWallPostsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.GetWallPostsResponse.Parser.ParseFrom);
 
-    static readonly Method<global::ExchangeOGram.PostToWallRequest, global::ExchangeOGram.PostToWallResponse> __Method_PostToWall = new Method<global::ExchangeOGram.PostToWallRequest, global::ExchangeOGram.PostToWallResponse>(
-        MethodType.Unary,
+    static readonly grpc::Method<global::ExchangeOGram.PostToWallRequest, global::ExchangeOGram.PostToWallResponse> __Method_PostToWall = new grpc::Method<global::ExchangeOGram.PostToWallRequest, global::ExchangeOGram.PostToWallResponse>(
+        grpc::MethodType.Unary,
         __ServiceName,
         "PostToWall",
         __Marshaller_PostToWallRequest,
         __Marshaller_PostToWallResponse);
 
-    static readonly Method<global::ExchangeOGram.GetWallPostsRequest, global::ExchangeOGram.GetWallPostsResponse> __Method_GetWallPosts = new Method<global::ExchangeOGram.GetWallPostsRequest, global::ExchangeOGram.GetWallPostsResponse>(
-        MethodType.ServerStreaming,
+    static readonly grpc::Method<global::ExchangeOGram.GetWallPostsRequest, global::ExchangeOGram.GetWallPostsResponse> __Method_GetWallPosts = new grpc::Method<global::ExchangeOGram.GetWallPostsRequest, global::ExchangeOGram.GetWallPostsResponse>(
+        grpc::MethodType.ServerStreaming,
         __ServiceName,
         "GetWallPosts",
         __Marshaller_GetWallPostsRequest,
@@ -158,29 +158,29 @@ namespace ExchangeOGram {
     /// <summary>Base class for server-side implementations of WallService</summary>
     public abstract partial class WallServiceBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::ExchangeOGram.PostToWallResponse> PostToWall(global::ExchangeOGram.PostToWallRequest request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::ExchangeOGram.PostToWallResponse> PostToWall(global::ExchangeOGram.PostToWallRequest request, grpc::ServerCallContext context)
       {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task GetWallPosts(global::ExchangeOGram.GetWallPostsRequest request, IServerStreamWriter<global::ExchangeOGram.GetWallPostsResponse> responseStream, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task GetWallPosts(global::ExchangeOGram.GetWallPostsRequest request, grpc::IServerStreamWriter<global::ExchangeOGram.GetWallPostsResponse> responseStream, grpc::ServerCallContext context)
       {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
     }
 
     /// <summary>Client for WallService</summary>
-    public partial class WallServiceClient : ClientBase<WallServiceClient>
+    public partial class WallServiceClient : grpc::ClientBase<WallServiceClient>
     {
       /// <summary>Creates a new client for WallService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public WallServiceClient(Channel channel) : base(channel)
+      public WallServiceClient(grpc::Channel channel) : base(channel)
       {
       }
       /// <summary>Creates a new client for WallService that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
-      public WallServiceClient(CallInvoker callInvoker) : base(callInvoker)
+      public WallServiceClient(grpc::CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
@@ -193,27 +193,27 @@ namespace ExchangeOGram {
       {
       }
 
-      public virtual global::ExchangeOGram.PostToWallResponse PostToWall(global::ExchangeOGram.PostToWallRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::ExchangeOGram.PostToWallResponse PostToWall(global::ExchangeOGram.PostToWallRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return PostToWall(request, new CallOptions(headers, deadline, cancellationToken));
+        return PostToWall(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::ExchangeOGram.PostToWallResponse PostToWall(global::ExchangeOGram.PostToWallRequest request, CallOptions options)
+      public virtual global::ExchangeOGram.PostToWallResponse PostToWall(global::ExchangeOGram.PostToWallRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_PostToWall, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::ExchangeOGram.PostToWallResponse> PostToWallAsync(global::ExchangeOGram.PostToWallRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::ExchangeOGram.PostToWallResponse> PostToWallAsync(global::ExchangeOGram.PostToWallRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return PostToWallAsync(request, new CallOptions(headers, deadline, cancellationToken));
+        return PostToWallAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::ExchangeOGram.PostToWallResponse> PostToWallAsync(global::ExchangeOGram.PostToWallRequest request, CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::ExchangeOGram.PostToWallResponse> PostToWallAsync(global::ExchangeOGram.PostToWallRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_PostToWall, null, options, request);
       }
-      public virtual AsyncServerStreamingCall<global::ExchangeOGram.GetWallPostsResponse> GetWallPosts(global::ExchangeOGram.GetWallPostsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::ExchangeOGram.GetWallPostsResponse> GetWallPosts(global::ExchangeOGram.GetWallPostsRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return GetWallPosts(request, new CallOptions(headers, deadline, cancellationToken));
+        return GetWallPosts(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncServerStreamingCall<global::ExchangeOGram.GetWallPostsResponse> GetWallPosts(global::ExchangeOGram.GetWallPostsRequest request, CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::ExchangeOGram.GetWallPostsResponse> GetWallPosts(global::ExchangeOGram.GetWallPostsRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_GetWallPosts, null, options, request);
       }
@@ -226,9 +226,9 @@ namespace ExchangeOGram {
 
     /// <summary>Creates service definition that can be registered with a server</summary>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    public static ServerServiceDefinition BindService(WallServiceBase serviceImpl)
+    public static grpc::ServerServiceDefinition BindService(WallServiceBase serviceImpl)
     {
-      return ServerServiceDefinition.CreateBuilder()
+      return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_PostToWall, serviceImpl.PostToWall)
           .AddMethod(__Method_GetWallPosts, serviceImpl.GetWallPosts).Build();
     }

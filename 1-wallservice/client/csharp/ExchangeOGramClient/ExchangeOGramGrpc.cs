@@ -7,27 +7,27 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Grpc.Core;
+using grpc = global::Grpc.Core;
 
 namespace ExchangeOGram {
   public static partial class WallService
   {
     static readonly string __ServiceName = "exchange_o_gram.WallService";
 
-    static readonly Marshaller<global::ExchangeOGram.PostToWallRequest> __Marshaller_PostToWallRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.PostToWallRequest.Parser.ParseFrom);
-    static readonly Marshaller<global::ExchangeOGram.PostToWallResponse> __Marshaller_PostToWallResponse = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.PostToWallResponse.Parser.ParseFrom);
-    static readonly Marshaller<global::ExchangeOGram.GetWallPostsRequest> __Marshaller_GetWallPostsRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.GetWallPostsRequest.Parser.ParseFrom);
-    static readonly Marshaller<global::ExchangeOGram.GetWallPostsResponse> __Marshaller_GetWallPostsResponse = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.GetWallPostsResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ExchangeOGram.PostToWallRequest> __Marshaller_PostToWallRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.PostToWallRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ExchangeOGram.PostToWallResponse> __Marshaller_PostToWallResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.PostToWallResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ExchangeOGram.GetWallPostsRequest> __Marshaller_GetWallPostsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.GetWallPostsRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ExchangeOGram.GetWallPostsResponse> __Marshaller_GetWallPostsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExchangeOGram.GetWallPostsResponse.Parser.ParseFrom);
 
-    static readonly Method<global::ExchangeOGram.PostToWallRequest, global::ExchangeOGram.PostToWallResponse> __Method_PostToWall = new Method<global::ExchangeOGram.PostToWallRequest, global::ExchangeOGram.PostToWallResponse>(
-        MethodType.Unary,
+    static readonly grpc::Method<global::ExchangeOGram.PostToWallRequest, global::ExchangeOGram.PostToWallResponse> __Method_PostToWall = new grpc::Method<global::ExchangeOGram.PostToWallRequest, global::ExchangeOGram.PostToWallResponse>(
+        grpc::MethodType.Unary,
         __ServiceName,
         "PostToWall",
         __Marshaller_PostToWallRequest,
         __Marshaller_PostToWallResponse);
 
-    static readonly Method<global::ExchangeOGram.GetWallPostsRequest, global::ExchangeOGram.GetWallPostsResponse> __Method_GetWallPosts = new Method<global::ExchangeOGram.GetWallPostsRequest, global::ExchangeOGram.GetWallPostsResponse>(
-        MethodType.ServerStreaming,
+    static readonly grpc::Method<global::ExchangeOGram.GetWallPostsRequest, global::ExchangeOGram.GetWallPostsResponse> __Method_GetWallPosts = new grpc::Method<global::ExchangeOGram.GetWallPostsRequest, global::ExchangeOGram.GetWallPostsResponse>(
+        grpc::MethodType.ServerStreaming,
         __ServiceName,
         "GetWallPosts",
         __Marshaller_GetWallPostsRequest,
@@ -42,29 +42,29 @@ namespace ExchangeOGram {
     /// <summary>Base class for server-side implementations of WallService</summary>
     public abstract partial class WallServiceBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::ExchangeOGram.PostToWallResponse> PostToWall(global::ExchangeOGram.PostToWallRequest request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::ExchangeOGram.PostToWallResponse> PostToWall(global::ExchangeOGram.PostToWallRequest request, grpc::ServerCallContext context)
       {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task GetWallPosts(global::ExchangeOGram.GetWallPostsRequest request, IServerStreamWriter<global::ExchangeOGram.GetWallPostsResponse> responseStream, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task GetWallPosts(global::ExchangeOGram.GetWallPostsRequest request, grpc::IServerStreamWriter<global::ExchangeOGram.GetWallPostsResponse> responseStream, grpc::ServerCallContext context)
       {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
     }
 
     /// <summary>Client for WallService</summary>
-    public partial class WallServiceClient : ClientBase<WallServiceClient>
+    public partial class WallServiceClient : grpc::ClientBase<WallServiceClient>
     {
       /// <summary>Creates a new client for WallService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public WallServiceClient(Channel channel) : base(channel)
+      public WallServiceClient(grpc::Channel channel) : base(channel)
       {
       }
       /// <summary>Creates a new client for WallService that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
-      public WallServiceClient(CallInvoker callInvoker) : base(callInvoker)
+      public WallServiceClient(grpc::CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
@@ -77,27 +77,27 @@ namespace ExchangeOGram {
       {
       }
 
-      public virtual global::ExchangeOGram.PostToWallResponse PostToWall(global::ExchangeOGram.PostToWallRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::ExchangeOGram.PostToWallResponse PostToWall(global::ExchangeOGram.PostToWallRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return PostToWall(request, new CallOptions(headers, deadline, cancellationToken));
+        return PostToWall(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::ExchangeOGram.PostToWallResponse PostToWall(global::ExchangeOGram.PostToWallRequest request, CallOptions options)
+      public virtual global::ExchangeOGram.PostToWallResponse PostToWall(global::ExchangeOGram.PostToWallRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_PostToWall, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::ExchangeOGram.PostToWallResponse> PostToWallAsync(global::ExchangeOGram.PostToWallRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::ExchangeOGram.PostToWallResponse> PostToWallAsync(global::ExchangeOGram.PostToWallRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return PostToWallAsync(request, new CallOptions(headers, deadline, cancellationToken));
+        return PostToWallAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::ExchangeOGram.PostToWallResponse> PostToWallAsync(global::ExchangeOGram.PostToWallRequest request, CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::ExchangeOGram.PostToWallResponse> PostToWallAsync(global::ExchangeOGram.PostToWallRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_PostToWall, null, options, request);
       }
-      public virtual AsyncServerStreamingCall<global::ExchangeOGram.GetWallPostsResponse> GetWallPosts(global::ExchangeOGram.GetWallPostsRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::ExchangeOGram.GetWallPostsResponse> GetWallPosts(global::ExchangeOGram.GetWallPostsRequest request, grpc::Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return GetWallPosts(request, new CallOptions(headers, deadline, cancellationToken));
+        return GetWallPosts(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncServerStreamingCall<global::ExchangeOGram.GetWallPostsResponse> GetWallPosts(global::ExchangeOGram.GetWallPostsRequest request, CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::ExchangeOGram.GetWallPostsResponse> GetWallPosts(global::ExchangeOGram.GetWallPostsRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_GetWallPosts, null, options, request);
       }
@@ -110,9 +110,9 @@ namespace ExchangeOGram {
 
     /// <summary>Creates service definition that can be registered with a server</summary>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    public static ServerServiceDefinition BindService(WallServiceBase serviceImpl)
+    public static grpc::ServerServiceDefinition BindService(WallServiceBase serviceImpl)
     {
-      return ServerServiceDefinition.CreateBuilder()
+      return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_PostToWall, serviceImpl.PostToWall)
           .AddMethod(__Method_GetWallPosts, serviceImpl.GetWallPosts).Build();
     }
