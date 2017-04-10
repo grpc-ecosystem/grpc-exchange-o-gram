@@ -22,7 +22,7 @@ namespace ExchangeOGram
             {
                 new ChannelOption(ChannelOptions.SslTargetNameOverride, "demo-linux1")
             };
-            this.channel = new Channel("104.154.171.207:8433", BackendPort, GetSslCredentials(), options);
+            this.channel = new Channel("104.154.171.207:8433", GetSslCredentials(), options);
             this.wallClient = new WallService.WallServiceClient(channel);
             this.mediaClient = new MediaService.MediaServiceClient(channel);
         }
